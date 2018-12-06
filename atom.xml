@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xdlmr.github.io/"/>
-  <updated>2018-12-06T02:18:30.166Z</updated>
+  <updated>2018-12-06T06:29:59.854Z</updated>
   <id>https://xdlmr.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ES6知识点小结</title>
+    <link href="https://xdlmr.github.io/2018/10/10/es6-zhi-shi-dian-xiao-jie/"/>
+    <id>https://xdlmr.github.io/2018/10/10/es6-zhi-shi-dian-xiao-jie/</id>
+    <published>2018-10-10T06:25:00.000Z</published>
+    <updated>2018-12-06T06:29:59.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;ECMAScript 6（以下简称ES6）是JavaScript语言的下一代标准。以下总结内容都是es6中新的特性，也是开发中经常用到知识点。&lt;/p&gt;
+&lt;h3 id=&quot;变量声明const和let&quot;&gt;&lt;a href=&quot;#变量声明const和let&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="javascript" scheme="https://xdlmr.github.io/categories/javascript/"/>
+    
+    
+      <category term="ES6" scheme="https://xdlmr.github.io/tags/ES6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javaScript常用数组方法总结</title>
+    <link href="https://xdlmr.github.io/2018/09/07/javascript-chang-yong-shu-zu-fang-fa-zong-jie/"/>
+    <id>https://xdlmr.github.io/2018/09/07/javascript-chang-yong-shu-zu-fang-fa-zong-jie/</id>
+    <published>2018-09-07T01:25:00.000Z</published>
+    <updated>2018-12-06T06:08:44.143Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;数组是javaScript非常重要的数据结构，任何一位前端工程都应该也是必须掌，握，今天整理了常用的方法。做得不好，仅供参考&lt;/p&gt;
+&lt;h2 id=&quot;改变自身值的方法-9个&quot;&gt;&lt;a href=&quot;#改变自身值的方法-9个&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="javascript" scheme="https://xdlmr.github.io/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="https://xdlmr.github.io/tags/javascript/"/>
+    
+      <category term="数组" scheme="https://xdlmr.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux常用命令</title>
@@ -429,48 +485,6 @@ console.log(&amp;quot;a: &amp;quot; + a + &amp;quot;, b: &amp;quot; + b);    //a
     
     
       <category term="Echarts" scheme="https://xdlmr.github.io/tags/Echarts/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Echarts3使用笔记(1)——五分钟上手Echarts3</title>
-    <link href="https://xdlmr.github.io/2017/03/27/echarts3-five-minutes-learning/"/>
-    <id>https://xdlmr.github.io/2017/03/27/echarts3-five-minutes-learning/</id>
-    <published>2017-03-27T07:54:45.000Z</published>
-    <updated>2017-03-27T08:27:59.590Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;ECharts，缩写来自Enterprise Charts，商业级数据图表，是百度的一个开源的数据可视化工具，业界给予了很多赞誉。&lt;br&gt;之前做项目一直用的是echarts2做的，后来同事说Echarts3使用起来更方便，去官网一看，大部分配置和echarts2还是一样，只是用echarts3不在需要引入其他文件，不用其他的路径配置，直接引用一份echarts文件即可。而且echarts的界面更加友好，用户体验比以前更加完美。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="数据可视化" scheme="https://xdlmr.github.io/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-    
-      <category term="Echarts" scheme="https://xdlmr.github.io/tags/Echarts/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>80% 应聘者都不及格的 JS 面试题</title>
-    <link href="https://xdlmr.github.io/2017/03/23/js-interview-question1/"/>
-    <id>https://xdlmr.github.io/2017/03/23/js-interview-question1/</id>
-    <published>2017-03-23T08:59:12.000Z</published>
-    <updated>2017-03-23T09:35:47.574Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;共 5024 字，读完需 6 分钟，速读需 2 分钟，本文首发于知乎专栏&lt;a href=&quot;https://zhuanlan.zhihu.com/feweekly&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;前端周刊&lt;/a&gt;。写在前面，笔者在做面试官这 2 年多的时间内，面试了数百个前端工程师，惊讶的发现，超过 80% 的候选人对下面这道题的回答情况连及格都达不到。这究竟是怎样神奇的一道面试题？他考察了候选人的哪些能力？对正在读本文的你有什么启示？且听我慢慢道来。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="https://xdlmr.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="js" scheme="https://xdlmr.github.io/tags/js/"/>
-    
-      <category term="笔试面试" scheme="https://xdlmr.github.io/tags/%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
