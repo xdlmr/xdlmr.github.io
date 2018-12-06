@@ -556,6 +556,28 @@ kettle-registry-extensions.xml
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '4b5ef041de38602cc252',
+        clientSecret: '18ab30f0a7299dca499a4470cca767047520eaad',
+        repo: 'https://xdlmr.github.io',
+        owner: 'xdlmr',
+        admin: ["xdlmr"],
+        id: '2017-07-12T16-55-42',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
 
     
 

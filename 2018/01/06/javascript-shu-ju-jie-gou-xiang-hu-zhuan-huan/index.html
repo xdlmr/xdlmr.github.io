@@ -370,12 +370,12 @@ let myMap = new Map().set(true, 7).set({foo: ">
             
             <div class="article-tag">
                 
-                <a href="/tags/Javascript/" target="_blank">
-                    <span class="chip bg-color">Javascript</span>
-                </a>
-                
                 <a href="/tags/ES6/" target="_blank">
                     <span class="chip bg-color">ES6</span>
+                </a>
+                
+                <a href="/tags/Javascript/" target="_blank">
+                    <span class="chip bg-color">Javascript</span>
                 </a>
                 
             </div>
@@ -627,6 +627,28 @@ console.log<span class="token punctuation">(</span>myMap<span class="token punct
         </div>
     </div>
 
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '4b5ef041de38602cc252',
+        clientSecret: '18ab30f0a7299dca499a4470cca767047520eaad',
+        repo: 'https://xdlmr.github.io',
+        owner: 'xdlmr',
+        admin: ["xdlmr"],
+        id: '2018-01-06T10-30-43',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
     
 
     
