@@ -1,0 +1,910 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="javascript闭包, MrLi">
+    <meta name="description" content="本文讲述Javascript的闭包。
+引言(简单了解js闭包)在讲述js闭包之前，我们先来说一个简单的例子:
+var a = 1;
+function fn(){
+    var b = 2;
+    console.log(&amp;quot;a:">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>javascript闭包 | MrLi</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">MrLi</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">MrLi</div>
+        <div class="logo-desc">
+            
+            生活在于分享
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xdlmr" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xdlmr" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        javascript闭包
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/js/" target="_blank">
+                    <span class="chip bg-color">js</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/前端/" class="post-category" target="_blank">
+                        前端
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2017-08-05
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>本文讲述Javascript的闭包。</p>
+<h2 id="引言-简单了解js闭包"><a href="#引言-简单了解js闭包" class="headerlink" title="引言(简单了解js闭包)"></a>引言(简单了解js闭包)</h2><p>在讲述js闭包之前，我们先来说一个简单的例子:</p>
+<pre><code>var a = 1;
+function fn(){
+    var b = 2;
+    console.log(&quot;a: &quot; + a + &quot;, b: &quot; + b);
+}
+fn();    //a: 1, b: 2
+console.log(&quot;a: &quot; + a + &quot;, b: &quot; + b);    //a: 1, b: undefined
+</code></pre><p>这个相信大家都可以理解，就是变量的作用域，a为定义的全局变量，b为函数fn内部定义的变量,在函数内部，可以获取到全局变量a的值和函数局部变量b的值。在函数外部，不能获取到局部变量b的值。但是，如果我确实想得到函数fn内部的b元素的值呢？<br><a id="more"></a><br>想一想，这个fn其实是一个方法，既然是个方法，那应该可以给这个方法设置一个返回值吧，那如果将这个函数的返回值设置为b元素，会发生什么情况呢？</p>
+<pre><code>function fn(){
+    var b = 5;
+    function fn2(){
+        console.log(n);
+    }
+    return fn2;
+}
+var result = fn();
+result();    //5
+</code></pre><p>实践证明，这样是可以获取到b元素值的。没错，这就是最简单的js闭包。</p>
+<h2 id="正题-js闭包讲解"><a href="#正题-js闭包讲解" class="headerlink" title="正题(js闭包讲解)"></a>正题(js闭包讲解)</h2><h3 id="js闭包概念："><a href="#js闭包概念：" class="headerlink" title="js闭包概念："></a>js闭包概念：</h3><p>官方对闭包的解释是：一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。</p>
+<p>是不是有点看不懂？</p>
+<p>其实，js闭包就是在外部可以访问函数内部的局部变量、参数或声明的其他内部函数。</p>
+<p>可能你会说，那这个算不算闭包呢：</p>
+<pre><code>function f1(){
+    var a = 1;
+
+    f2(a);
+}
+
+function f2(m){
+    console.log(m);
+}
+
+f1();    //1
+</code></pre><p>那么，你觉得下边这个函数和上边的有什么区别呢:</p>
+<pre><code>function f1(){
+    var a = 1;
+    console.log(a);    
+}
+f1();    //1
+</code></pre><p>这个函数和上边的函数其实并没有什么区别，完全可以合并为同一个函数。只不过有时候为了实现代码模块化或组件化，于是将通用的方法封装了起来，以便于方法的重用，所以它并不是闭包。</p>
+<p>既然我们已经看到了比较简单的js闭包，那么我们再来加一点难度，看一下下面这段代码：</p>
+<pre><code>var name = &#39;张三&#39;;
+var Comp = {
+    name : &#39;小张&#39;,
+    getName : function(){
+        return this.name;
+    }
+}
+console.log(Comp.getName());    //小张
+</code></pre><p>这个应该比较容易理解，Comp是一个对象，包含一个name属性和一个名为getName的方法，因为getName方法是属于Comp对象的，所以这个this指向Comp对象。因此调用Comp对象中的getName方法，这时候this.name的值应该是”小张”。</p>
+<p>再加深一点难度：</p>
+<pre><code>var name = &#39;张三&#39;;
+var Comp = {
+    name : &#39;小张&#39;,
+    getName : function(){
+        var here = this;
+        return function(){
+            return here.name;
+        }
+    }
+}
+console.log(Comp.getName()());    //小张
+</code></pre><p>在这段代码中，定义了here作为getName()方法的局部变量，所以here指的对象并不是window对象，而是Comp对象。但是，由于返回值中有here，所以这个局部变量就一直存在内存中，当调用Comp.getName()()这个方法时，将here从内存中取出来，由于here指的就是Comp对象，所以返回的值就是Comp.name的值。</p>
+<h2 id="提升-this指向问题"><a href="#提升-this指向问题" class="headerlink" title="提升(this指向问题)"></a>提升(this指向问题)</h2><pre><code>var name = &#39;张三&#39;;
+var Comp = {
+    name : &#39;小张&#39;,
+    getName : function(){
+        return function(){
+            return this.name;
+        }
+    }
+}
+console.log(Comp.getName()());    //张三
+</code></pre><p>为什么这个函数中的this.name返回的是”张三”呢？我们可以先试着运行一下这个</p>
+<pre><code>console.log(Comp.getName());    //function (){    return this.name;    }
+</code></pre><p>这段代码输出的是一段字符串，而这段字符串是一个匿名函数，而且此时并没有执行这个方法，仅仅是返回了构成这个方法的字符串而已。然后调用这段字符串构成的方法，也就相当于调用window下的一个匿名函数。那这样说的话，是不是我可以将上边这个函数改成这个样子呢？</p>
+<pre><code>var name = &#39;张三&#39;;
+var Comp = {
+    name : &#39;小张&#39;,
+    getName : function(){
+        return noNameFun;
+    }
+}
+var noNameFun = function(){
+    return this.name;
+}
+console.log(Comp.getName()());    //张三
+</code></pre><p>可以看出，这个函数确实输出的是”张三”,也就是说和上边这个函数是一样的。那我们就明白了，noNameFun()是属于window对象的，那么这个方法的this也属于window对象，所以this.name就代表的是”张三”。</p>
+<h2 id="闭包的优点"><a href="#闭包的优点" class="headerlink" title="闭包的优点"></a>闭包的优点</h2><p>闭包的优点有两个：</p>
+<ol>
+<li>可以读取函数内部的变量;</li>
+<li>让这些变量的值始终保持在内存中。</li>
+</ol>
+<h2 id="补充-js闭包内存问题"><a href="#补充-js闭包内存问题" class="headerlink" title="补充(js闭包内存问题)"></a>补充(js闭包内存问题)</h2><p>在我们的使用中，很多时候都会用到js闭包的概念，尤其是模块化开发。然而，js闭包虽然好用的，但是任何事物都有它的两面性，变量保持在内存中是优点，但也存在这样一个问题：</p>
+<p>由于闭包会是函数中的变量一直存在于内存中，导致内存被占用，而如果这样的变量多了的话，会使内存消耗很大。所以，不能滥用闭包，否则会是网页性能变得很差，而且在IE中，有可能导致内存泄露。</p>
+<p>什么是内存被占用，我举个例子来说一下：</p>
+<pre><code>function fn(){
+    var n = 1;
+    function add(){
+        n += 1;
+        console.log(n);
+    }
+    return add;
+}
+var result = fn();
+result();    //2
+result();    //3
+result();    //4
+result();    //5
+result();    //6
+</code></pre><p>也就是说，这个变量n是一直存在于内存中的，所以每次调用，n就会加1。</p>
+<h2 id="题外-全局变量和局部变量"><a href="#题外-全局变量和局部变量" class="headerlink" title="题外(全局变量和局部变量)"></a>题外(全局变量和局部变量)</h2><p>对于全局变量和局部变量，有些新手可能不太明白。</p>
+<p>外部声明的变量属于全局变量，方法内部声明的变量属于局部变量。但是如果在方法内部没有用var来声明一个变量，那这个变量应该也是一个全局变量。</p>
+<pre><code>var n = 1;
+function fn(){
+    var m = 5;
+    t = 10;
+    console.log(m);
+}
+
+console.log(n);    //5
+console.log(m);    //undefined
+console.log(t);    //undefined
+fn();            //5
+console.log(m);    //undefined
+console.log(t);    //10
+</code></pre><p>为什么在执行fn()函数之前打印”t”这个全局变量会输出”undefined”呢？这个”t”到底是不是全局变量？</p>
+<p>我们可以想一下，我现在声明了一个函数，但是我只是定义了这个函数，并没有调用它。那么这个函数内部的方法是不会执行的，也就是说，在我调用方法fn()之前，这个”t”是并没有被声明的，既然没有被声明，那就肯定会输出”undefined”。但是在调用了fn()函数之后，也就执行了函数内部的方法，即：声明了”t”变量。之后，就肯定可以获取到”t”这个全局变量啦。</p>
+<p>对于函数里的方法也是一样的。</p>
+<pre><code>function fn(){
+    var n = 1;
+    nAdd = function(){
+        n += 1;
+    }
+    function f(){
+        console.log(n);
+    }
+    return f;
+}
+//nAdd();    //undefined
+var result = fn();
+result();    //1
+nAdd();
+result();    //2
+nAdd();
+result();    //3
+</code></pre><p>本章节完！</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://xdlmr.github.io" class="b-link-green">MrLi</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2017/08/05/javascript-bi-bao/" class="b-link-green">javascript闭包</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/2017/08/08/qian-duan-chang-jian-zhi-shi-dian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="常见前端知识点">
+                        
+                        <span class="card-title">常见前端知识点</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">本文讲述了部分前端面试经常遇到的问题。
+HTML和CSS对WEB标准以及W3C的理解1.写代码的时候注意
+
+标签闭合
+标签小写
+不能随意嵌套
+
+2.提高搜索引擎搜到几率
+mate中的name变量(其中keywords和description</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-08-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2017/07/12/kettle-errot-karaflifecyclelistenter/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="kettle_errot_karafLifecycleListenter">
+                        
+                        <span class="card-title">kettle_errot_karafLifecycleListenter</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">使用kettle 6.1 通过命令行批量执行作业的过程中，发现偶尔有作业执行时间会变慢几分钟，查看日志发现改作业开始就报了一个错
+
+
+报错之后才会继续下面的作业，虽然不影响最终作业执行结果，但也延误了一些跑批时间。去pentaho论坛查了一</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-07-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/kettle/" target="_blank">
+                        <span class="chip bg-color">kettle</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">目录</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://xdlmr.github.io/" target="_blank">Mrli</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

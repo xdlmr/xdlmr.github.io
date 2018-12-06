@@ -1,0 +1,789 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="成为一名优秀的web前端工程师都需要做些什么？, MrLi">
+    <meta name="description" content="程序设计之道无远弗届，御晨风而返。———— 杰佛瑞 · 詹姆士
+我所遇到的前端程序员分两种：    第一种一直在问：如何学习前端？    第二种总说：前端很简单，就那么一点东西。
+我从没有听到有人问：如何做一名优秀、甚至卓越的WEB前端工程">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>成为一名优秀的web前端工程师都需要做些什么？ | MrLi</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">MrLi</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">MrLi</div>
+        <div class="logo-desc">
+            
+            生活在于分享
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xdlmr" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xdlmr" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        成为一名优秀的web前端工程师都需要做些什么？
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/js/" target="_blank">
+                    <span class="chip bg-color">js</span>
+                </a>
+                
+                <a href="/tags/前端/" target="_blank">
+                    <span class="chip bg-color">前端</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/前端/" class="post-category" target="_blank">
+                        前端
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2016-08-31
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>程序设计之道无远弗届，御晨风而返。———— 杰佛瑞 · 詹姆士</p>
+<p>我所遇到的前端程序员分两种：<br>    第一种一直在问：如何学习前端？<br>    第二种总说：前端很简单，就那么一点东西。</p>
+<p>我从没有听到有人问：如何做一名优秀、甚至卓越的WEB前端工程师。<br>如果成为一名优秀的web前端工程师（前端攻城师）？</p>
+ <a id="more"></a>
+<p>何为：前端工程师？<br>前端工程师，也叫Web前端开发工程师。他是随着web发展，细分出来的行业。<br>Web前端开发技术主要包括三个要素：HTML、CSS和JavaScript！<br>它要求前端开发工程师不仅要掌握基本的Web前端开发技术，网站性能优化、SEO和服务器端的基础知识，而且要学会运用各种工具进行辅助开发以及理论层面的知识，包括代码的可维护性、组件的易用性、分层语义模板和浏览器分级支持等。<br>随着近两三年来RIA（Rich Internet Applications的缩写，中文含义为：丰富的因特网应用程序）的流行和普及带来的诸如：Flash/Flex，Silverlight、XML和服务器端语言（PHP、ASP.NET，JSP、Python）等语言，前端开发工程师也需要掌握。<br>前端开发的入门门槛其实很低，与服务器端语言先慢后快的学习曲线相比，前端开发的学习曲线是先快后慢。<br>HTML 甚至不是一门语言，他仅仅是简单的标记语言！<br>CSS 只是无类型的样式修饰语言。当然可以勉强算作弱类型语言。<br>Javascript 的基础部分相对来说不难，入手还算快。</p>
+<p>也正因为如此，前端开发领域有很多自学成“才”的同行，但大多数人都停留在会用的阶段，因为后面的学习曲线越来越陡峭，每前进一步都很难。<br>Web前端技术有一些江湖气，知识点过于琐碎，技术价值观的博弈也难分伯仲，即全局的系统的知识结构并未成体系，这些因素也客观上影响了“正统“前端技术的沉淀！而且各种“奇技淫巧”被滥用，前端技术知识的传承也过于泛泛，新人难看清时局把握主次。因此，前端技术领域，为自己觅得一个靠谱的师兄，重要性要盖过项目、团队、公司、甚至薪水。</p>
+<p>另一方面，正如前面所说，前端开发是个非常新的职业，对一些规范和最佳实践的研究都处于探索阶段。<br>总有新的灵感和技术不时闪现出来，例如CSS sprite、负边距布局、栅格布局等；<br>各种JavaScript框架层出不穷，为整个前端开发领域注入了巨大的活力；<br>浏览器大战也越来越白热化，跨浏览器兼容方案依然是五花八门。<br>为了满足“高可维护性”的需要，需要更深入、更系统地去掌握前端知识，这样才可能创建一个好的前端架构，保证代码的质量。</p>
+<p>随着手持设备的迅猛发展，带动了 HTML5行业标准的快速发展。web领域的技术，大概有10年都没有大的更新了！<br>现在市场很需要优秀的、高级的前端工程师。<br>一方面是因为这是一个比较新的细分行业，而且前端程序员大都自学一部分，知识结构不系统；另一方面，大学里面没有这种课程，最最重要的是：北大青鸟这类培训机构也没有专门的前端工程师的培训课程！！</p>
+<p>吴亮在《JavaScript 王者归来》第一张的序里面说：大多数程序员认为 Javascript 过于简陋，只适合一些网页上面花哨的表现，所以不愿花费精力去学习，或者以为不学习就能掌握。<br>实际上，一门语言是否脚本语言，往往是她的设计目标决定，简单与复杂并不是区分脚本语言和非脚本语言的标准。<br>事实上，在脚本语言里面，Javascript 属于相当复杂的一门语言，他的复杂度即使放在非脚本语言中来衡量，也是一门相当复杂的语言！<br>Javascript 的复杂度不逊色于 Perl 和 Python！</p>
+<p>如何学习前端知识？<br>我们生活在一个充满规则的宇宙里面。社会秩序按照规则运行，计算机语言几乎全部是规则的集合。计算机前辈们定义规则，规则约束我们，我们用规则控制数据。大部分时候，对数据的合理控制，来自于你对规则的掌握。</p>
+<p>学习 HTML，CSS 应该先跟着书仔细、扎实的学一遍。然后就需要做大量的练习，做各种常规的、奇怪的、大量的布局练习来捆固、理解自己的知识。<br>而学习 Javascript 首先要知道这门语言可以做什么，不能做什么，擅长做什么，不擅长做什么！<br>如果你只想当一个普通的前端程序员，你只需要记住大部分 Javascript 函数，做一些练习就可以了。<br>如果你想当深入了解Javascript，你需要了解 Javascript 的原理，机制。需要知道他们的本源，需要深刻了解 Javascript 基于对象的本质。<br>还需要 深刻了解 浏览器宿主 下 的 Javascript 的行为、特性。</p>
+<p>因为历史原因，Javascript一直不被重视，有点像被收养的一般！ 所以他有很多缺点，各个宿主环境下的行为不统一、内存溢出问题、执行效率低下等问题。<br>作为一个优秀的前端工程师还需要深入了解、以及学会处理 Javascript 的这些缺陷。</p>
+<p>那么一名优秀的、甚至卓越的 前端开发工程师的具备什么条件？<br>首先，优秀的Web前端开发工程师要在知识体系上既要有广度和深度！做到这两点，其实很难。所以很多大公司即使出高薪也很难招聘到理想的前端开发工程师。技术非黑即白，只有对和错，而技巧则见仁见智。<br>在以前，会一点Photoshop和Dreamweaver的操作，就可以制作网页。<br>现在，只掌握这些已经远远不够了。无论是开发难度上，还是开发方式上，现在的网页制作都更接近传统的网站后台开发，所以现在不再叫网页制作，而是叫Web前端开发。<br>Web前端开发在产品开发环节中的作用变得越来越重要，而且需要专业的前端工程师才能做好。<br>Web前端开发是一项很特殊的工作，涵盖的知识面非常广，既有具体的技术，又有抽象的理念。简单地说，它的主要职能就是把网站的界面更好地呈现给用户。</p>
+<p>其次，优秀的Web前端开发工程师应该具备快速学习能力。Web发展的很快，甚至可以说这些技术几乎每天都在变化！如果没有快速学习能力，就跟不上Web发展的步伐。前端工程师必须不断提升自己，不断学习新技术、新模式；仅仅依靠今天的知识无法适应未来。Web的明天与今天必将有天壤之别，而前端工程师的工作就是要搞清楚如何通过自己的Web应用程序来体现这种翻天覆地的变化。<br>说到这里，我想起了一个大师说过的一句话：对于新手来说，新技术就是新技术。<br>对于一个高手来说，新技术不过是就技术的延伸。<br>再者，优秀的前端工程师需要具备良好的沟通能力，因为前端工程师至少都要满足四类客户的需求。<br>1、产品经理。这些是负责策划应用程序的一群人。他们会想出很多新鲜的、奇怪的、甚至是不可是实现的应用。一般来说，产品经理都追求丰富的功能。<br>2、UI设计师。这些人负责应用程序的视觉设计和交互模拟。他们关心的是用户对什么敏感、交互的一贯性以及整体的好用性。一般来说，UI设计师于流畅靓丽、但并不容易实现的用户界面，而且他们经常不满前端工程师造成 1px 的误差。<br>3、项目经理。这些人负责实际地运行和维护应用程序。项目管理的主要关注点，无外乎正常运行时间、应用程序始终正常可用的时间、性能和截止日期。项目经理追求的目标往往是尽量保持事情的简单化，以及不在升级更新时引入新问题。<br>4、最终用户。指的是应用程序的主要消费者。尽管前端工程师不会经常与最终用户打交道，但他们的反馈意见至关重要。最终用户要求最多的就是对个人有用的功能，以及竞争性产品所具备的功能。<br>Yahoo 公司 ，YUI 的开发工程师 Nicholas C. Zakas 认为：<br>前端工程师是计算机科学职业领域中最复杂的一个工种。绝大多数传统的编程思想已经不适用了，为了在多种平台中使用，多种技术都借鉴了大量软科学的知识和理念。成为优秀前端工程师所要具备的专业技术，涉及到广阔而复杂的领域，这些领域又会因为你最终必须服务的各方的介入而变得更加复杂。专业技术可能会引领你进入成为前端工程师的大门，但只有运用该技术创造的应用程序以及你跟他人并肩协同的能力，才会真正让你变得优秀。</p>
+<hr>
+<p>关于书籍：<br>HTML、CSS 类别书籍，都是大同小异，在当当网、卓越网搜索一下很多推荐。如果感觉学的差不多了，可以关注一下《CSS禅意花园》，这个很有影响力。<br>Javascript 的书籍 推荐看老外写的，国内很多 Javascript 书籍的作者对 Javascript 语言了解的都不是很透彻。<br>这里推荐几本 Javascript 书籍：<br>初级读物：<br>《JavaScript高级程序设计》：一本非常完整的经典入门书籍，被誉为JavaScript圣经之一，详解的非常详细，最新版第三版已经发布了，建议购买。<br>《JavaScript王者归来》百度的一个Web开发项目经理写的，作为初学者准备的入门级教程也不错。<br>中级读物：<br>《JavaScript权威指南》：另外一本JavaScript圣经，讲解的也非常详细，属于中级读物，建议购买。<br>《JavaScript.The.Good.Parts》：Yahoo大牛，JavaScript精神领袖Douglas Crockford的大作，虽然才100多页，但是字字珠玑啊！强烈建议阅读。<br>《高性能JavaScript》：《JavaScript高级程序设计》作者Nicholas C. Zakas的又一大作。<br>《Eloquent JavaScript》：这本书才200多页，非常短小，通过几个非常经典的例子（艾米丽姨妈的猫、悲惨的隐士、模拟生态圈、推箱子游戏等等）来介绍JavaScript方方面面的知识和应用方法。<br>高级读物：<br>《JavaScript Patterns 》：书中介绍到了各种经典的模式，如构造函数、单例、工厂等等，值得学习。<br>《Pro.JavaScript.Design.Patterns》：Apress出版社讲解JavaScript设计模式的书，非常不错。<br>《Developing JavaScript Web Applications》：构建富应用的好书，针对MVC模式有较为深入的讲解，同时也对一些流程的库进行了讲解。<br>《Developing Large Web Applications》：不仅有JavaScript方面的介绍，还有CSS、HTML方面的介绍，但是介绍的内容却都非常不错，真正考虑到了一个大型的Web程序下，如何进行JavaScript架构设计，值得一读。<br>要做优秀的前端工程师，还需要继续努力：《高性能网站建设指南》、《Yahoo工程师的网站性能优化的建议》、“YSLOW”性能优化建议、《网站重构》、《Web开发敏捷之道》、“ jQuery 库”、“前端框架”、“HTML5”、“CSS3”。。。 这些都要深入研究！</p>
+<p>万事开头难！如果你能到这个境界，剩下的路自己就可以走下去了。<br>人们常说：不想当裁缝的司机，不是个好厨师。<br>如果单纯只是学习前端编程语言、而不懂后端编程语言（PHP、ASP.NET，JSP、Python），也不能算作是优秀的前端工程师。<br>在成为一个优秀的前端工程师的道路上，充满了汗水和辛劳。</p>
+<pre><code>                                                        —— 王子墨  写于Hong Kong,Kowloon
+                                                            2012年10月28日 20:18
+</code></pre><p>摘自：王子墨博客 <a href="http://julying.com/blog/how-to-become-a-good-web-front-end-engineer/" target="_blank" rel="noopener">http://julying.com/blog/how-to-become-a-good-web-front-end-engineer/</a></p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://xdlmr.github.io" class="b-link-green">MrLi</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2016/08/31/how-to-become-a-good-web-front-end-engineer/" class="b-link-green">成为一名优秀的web前端工程师都需要做些什么？</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/2017/02/20/css3-xin-zeng-shu-xing/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="CSS3新增属性(过渡、背景裁剪、动画、CSS变换)">
+                        
+                        <span class="card-title">CSS3新增属性(过渡、背景裁剪、动画、CSS变换)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">本文简述CSS3的过渡效果transition、动画animation、背景相关操作background等。
+
+CSS3过渡效果transition效果图    请把鼠标放在该区域
+
+代码实现html代码：
+&lt;div class="t</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-02-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                    CSS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS3/" target="_blank">
+                        <span class="chip bg-color">CSS3</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2016/08/18/this-quan-mian-jie-xi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="《你不知道的javascript》学习笔记-第二部分第二章：this全面解析">
+                        
+                        <span class="card-title">《你不知道的javascript》学习笔记-第二部分第二章：this全面解析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">在第1章中，我们排除了一些对于this的错误理解并且明白了每个函数的this是在调用时被绑定的，完全取决于函数的调用位置（也就是函数的调用方法）。
+调用位置调用位置：调用位置就是函数在代码中被调用的位置（而不是声明的位置）。只有仔细分析调用</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2016-08-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js/" target="_blank">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                    <a href="/tags/你不知道的javascript/" target="_blank">
+                        <span class="chip bg-color">你不知道的javascript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">目录</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://xdlmr.github.io/" target="_blank">Mrli</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

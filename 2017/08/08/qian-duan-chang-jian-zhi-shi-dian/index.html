@@ -1,0 +1,1430 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="常见前端知识点, MrLi">
+    <meta name="description" content="本文讲述了部分前端面试经常遇到的问题。
+HTML和CSS对WEB标准以及W3C的理解1.写代码的时候注意
+
+标签闭合
+标签小写
+不能随意嵌套
+
+2.提高搜索引擎搜到几率
+mate中的name变量(其中keywords和description">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>常见前端知识点 | MrLi</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">MrLi</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">MrLi</div>
+        <div class="logo-desc">
+            
+            生活在于分享
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xdlmr" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xdlmr" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        常见前端知识点
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/前端/" class="post-category" target="_blank">
+                        前端
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2017-08-08
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>本文讲述了部分前端面试经常遇到的问题。<br><a id="more"></a></p>
+<h2 id="HTML和CSS"><a href="#HTML和CSS" class="headerlink" title="HTML和CSS"></a>HTML和CSS</h2><h3 id="对WEB标准以及W3C的理解"><a href="#对WEB标准以及W3C的理解" class="headerlink" title="对WEB标准以及W3C的理解"></a>对WEB标准以及W3C的理解</h3><p>1.写代码的时候注意</p>
+<ul>
+<li>标签闭合</li>
+<li>标签小写</li>
+<li>不能随意嵌套</li>
+</ul>
+<p>2.提高搜索引擎搜到几率</p>
+<p>mate中的name变量(其中keywords和description尤其重要)</p>
+<pre class=" language-bash"><code class="language-bash">Meta name<span class="token operator">=</span><span class="token string">"Keywords"</span> Lang<span class="token operator">=</span><span class="token string">"EN"</span> Content<span class="token operator">=</span><span class="token string">"vacation,greece,sunshine"</span>
+Meta name<span class="token operator">=</span><span class="token string">"Description"</span> Content<span class="token operator">=</span><span class="token string">"你网页的简述"</span>
+Meta name<span class="token operator">=</span><span class="token string">"Robots"</span> Content<span class="token operator">=</span><span class="token string">"All|None|Index|Noindex|Follow|Nofollow"</span> 
+  <span class="token punctuation">[</span>all：文件将被检索，且页面上的链接可以被查询； 
+  none：文件将不被检索，且页面上的链接不可以被查询；<span class="token punctuation">(</span>和 <span class="token string">"noindex, no follow"</span> 起相同作用<span class="token punctuation">)</span> 
+  index：文件将被检索；（让robot/spider登录） 
+  follow：页面上的链接可以被查询； 
+  noindex：文件将不被检索，但页面上的链接可以被查询；<span class="token punctuation">(</span>不让robot/spider登录<span class="token punctuation">)</span> 
+  nofollow：文件将不被检索，页面上的链接可以被查询。<span class="token punctuation">(</span>不让robot/spider顺着此页的连接往下探找<span class="token punctuation">)</span><span class="token punctuation">]</span>  
+Meta name<span class="token operator">=</span><span class="token string">"Author"</span> Content<span class="token operator">=</span><span class="token string">"张三，abc@sina.com"</span>
+Meta name<span class="token operator">=</span><span class="token string">"Copyright"</span> Content<span class="token operator">=</span><span class="token string">"本页版权归Zerospace所有。All Rights Reserved"</span>
+Meta name<span class="token operator">=</span><span class="token string">"Generator"</span> Content<span class="token operator">=</span><span class="token string">"PCDATA|FrontPage|"</span>
+META name<span class="token operator">=</span><span class="token string">"revisit-after"</span> CONTENT<span class="token operator">=</span><span class="token string">"7 days"</span>
+</code></pre>
+<p>3.提高网页加载速度</p>
+<ul>
+<li>把js和css写到外部文档、实现结构行为表现的分离。</li>
+<li>去掉不必要的空格和注释等。</li>
+<li>尽量不使用table布局，尽量使用不嵌套的table布局。</li>
+<li>指定图像和table的大小。</li>
+<li>尽量不要使用图像来代替文本(例如在导航栏)。</li>
+<li>延迟js脚本加载，将脚本放在页面底部。</li>
+<li>尽量使用png格式的图像.</li>
+</ul>
+<h3 id="XHTML和HTML的区别"><a href="#XHTML和HTML的区别" class="headerlink" title="XHTML和HTML的区别"></a>XHTML和HTML的区别</h3><p>HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的置标语言。</p>
+<p>最主要的不同：</p>
+<ul>
+<li>XHTML元素必须被正确地嵌套。<br>  标签由外到内，一层层包覆着，所以假设你先写div后写h1，结尾就要先写h1后写div。只要记住一个原则“先进后出”，先弹出的标签要后结尾。</li>
+<li>XHTML元素必须被关闭。<br>  当出现一个标签时，必须要有对应的结束标签，缺一不可，就像在任何程序语言中的括号一样。对于空标签，也必须使用结束标签，或者其开始标签必须使用”/&gt;”结尾。</li>
+<li>元素必须用小写字母。</li>
+<li>XHTML文档必须拥有根元素。<br>  所有的 XHTML 元素必须被嵌套于&lt;html&gt; 根元素中。其余所有的元素均可有子元素。子元素必须是成对的且被嵌套在其父元素之中。</li>
+</ul>
+<h3 id="严格模式与混杂模式"><a href="#严格模式与混杂模式" class="headerlink" title="严格模式与混杂模式"></a>严格模式与混杂模式</h3><p>1.Doctype的作用</p>
+<p>&lt;!DOCTYPE&gt;声明叫做文件类型定义（DTD），声明的作用为了告诉浏览器该文件的类型。让浏览器解析器知道应该用哪个规范来解析文档。&lt;!DOCTYPE&gt;声明必须在HTML文档的第一行，这并不是一个HTML标签。</p>
+<p>2.严格模式与混杂模式的来源</p>
+<p>当年Netscape4（网景公司早期的浏览器）和IE4（微软公司早期的浏览器）实现CSS机制时，并没有遵循W3C提出的标准。Netscape4 提供了糟糕的支持，而IE4 虽然接近标准，但依旧未能完全正确的支持标准。尽管IE 5 修复了IE4 许多的问题，但是依然延续CSS实现中的其它故障（主要是盒模型问题）。</p>
+<p>为了保障自己的网站在各个浏览器上显示正确，网页开发者们不得不依据各个浏览器自身的规范来使用css，因此大部分网站的css实现并不符合W3C规范的标准。</p>
+<p>然而随着标准一致性越来越重要，浏览器开发商不得不面临一个艰难的抉择：逐渐遵循W3C的标准是前进的方向。但是改变现有的 css，完全去遵循标准，会使许多旧网站或多或少受到破坏，如果浏览器突然以正确的方式解析现存的css，陈旧的网站的显示必然会受到影响。所以，所有的浏览器都需要提供两种模式：混杂模式服务于旧式规则，而严格模式服务于标准规则。</p>
+<p>3.概念</p>
+<p>严格模式：又称标准模式，是指浏览器按照 W3C 标准解析代码。</p>
+<p>混杂模式：又称怪异模式或兼容模式，是指浏览器用自己的方式解析代码。</p>
+<p>4.区分</p>
+<p>浏览器解析时到底使用严格模式还是混杂模式，与网页中的 DTD 直接相关。</p>
+<ul>
+<li>如果文档包含严格的 DOCTYPE ，那么它一般以严格模式呈现。（严格 DTD ——严格模式） </li>
+<li>包含过渡 DTD 和 URI 的 DOCTYPE ，也以严格模式呈现，但有过渡 DTD 而没有 URI （统一资源标识符，就是声明最后的地址）会导致页面以混杂模式呈现。（有 URI 的过渡 DTD ——严格模式；没有 URI 的过渡 DTD ——混杂模式） </li>
+<li>DOCTYPE 不存在或形式不正确会导致文档以混杂模式呈现。（DTD不存在或者格式不正确——混杂模式）</li>
+<li>HTML5 没有 DTD ，因此也就没有严格模式与混杂模式的区别，HTML5 有相对宽松的语法，实现时，已经尽可能大的实现了向后兼容。（ HTML5 没有严格和混杂之分）</li>
+</ul>
+<p>严格模式与混杂模式存在的意义与其来源密切相关，如果说只存在严格模式，那么许多旧网站必然受到影响，如果只存在混杂模式，那么会回到当时浏览器大战时的混乱，每个浏览器都有自己的解析模式。</p>
+<p>5.两种模式不同点</p>
+<ul>
+<li>盒模型的高宽包含内边距padding和边框border<br>  在W3C标准中，如果设置一个元素的宽度和高度，指的是元素内容的宽度和高度，而在IE5.5及以下的浏览器及其他版本的Quirks模式下，IE的宽度和高度还包含了padding和border。</li>
+<li>可以设置行内元素的高宽<br>  在严格模式下，给span等行内元素设置wdith和height都不会生效，而在quirks模式下，则会生效。</li>
+<li>可设置百分比的高度<br>  在严格模式下，一个元素的高度是由其包含的内容来决定的，如果父元素没有设置高度，子元素设置一个百分比的高度是无效的。</li>
+<li>用margin:0 auto设置水平居中在IE下会失效<br>  使用margin:0 auto在严格模式下可以使元素水平居中，但在quirks模式下却会失效,quirk模式下的解决办法，用text-align属性:body{text-align:center};#content{text-align:left}</li>
+<li>quirk模式下设置图片的padding会失效</li>
+<li>quirk模式下Table中的字体属性不能继承上层的设置</li>
+<li>quirk模式下white-space:pre会失效</li>
+</ul>
+<p>6.常用的具体声明</p>
+<ul>
+<li>HTML5(一种)：<pre class=" language-bash"><code class="language-bash">  <span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">></span>
+</code></pre>
+</li>
+<li>HTML 4.01(三种)<br>  严格模式包含所有 HTML 元素和属性，但不包括展示性的和弃用的元素（比如 font），不允许框架集（Framesets）；过渡模式包含所有 HTML 元素和属性，包括展示性的和弃用的元素（比如 font），不允许框架集（Framesets）；框架模式等同于过渡模式，但允许框架集内容。<pre class=" language-bash"><code class="language-bash">  HTML 4.01 Strict ：
+    <span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE HTML PUBLIC <span class="token string">"-//W3C//DTD HTML 4.01//EN"</span> <span class="token string">"http://www.w3.org/TR/html4/strict.dtd"</span><span class="token operator">></span>
+  HTML 4.01 Transitional ：
+    <span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE HTML PUBLIC <span class="token string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span>  <span class="token string">"http://www.w3.org/TR/html4/loose.dtd"</span><span class="token operator">></span>
+  HTML 4.01 Frameset ：
+    <span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE HTML PUBLIC <span class="token string">"-//W3C//DTD HTML 4.01 Frameset//EN"</span>  <span class="token string">"http://www.w3.org/TR/html4/frameset.dtd"</span><span class="token operator">></span>
+</code></pre>
+</li>
+<li>XHTML 1.0(四种)<br>  前三种模式同上，XHML 必须以格式正确的 XML 来编写标记。<pre class=" language-bash"><code class="language-bash">  XHTML 1.0 Strict ：
+    <span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html PUBLIC <span class="token string">"-//W3C//DTD XHTML 1.0 Strict//EN"</span>  <span class="token string">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"</span><span class="token operator">></span>
+  XHTML 1.0 Transitional ：
+    <span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html PUBLIC <span class="token string">"-//W3C//DTD XHTML 1.0 Transitional//EN"</span> <span class="token string">" http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"</span><span class="token operator">></span>
+  XHTML 1.0 Frameset： 
+    <span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html PUBLIC <span class="token string">"-//W3C//DTD XHTML 1.0 Frameset//EN"</span>  <span class="token string">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"</span><span class="token operator">></span>
+  XHTML 1.1 的 DTD 等同于 XHTML 1.0 Strict，但允许添加模型。
+    <span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html PUBLIC <span class="token string">"-//W3C//DTD XHTML 1.1//EN"</span> <span class="token string">"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"</span><span class="token operator">></span>
+</code></pre>
+<h3 id="行内元素与块级元素"><a href="#行内元素与块级元素" class="headerlink" title="行内元素与块级元素"></a>行内元素与块级元素</h3></li>
+</ul>
+<p>1.区别</p>
+<ul>
+<li>默认情况下，多个行内元素会在同一行，水平排列。块级元素每个元素独占一行，多个块级元素垂直方向排列。</li>
+<li>块级元素可以包含行内元素和块级元素。行内元素不能包含块级元素。</li>
+<li>行内元素与块级元素属性的不同，主要是盒模型属性上。行内元素设置width无效，height无效(可以设置line-height)，margin上下无效，padding上下无效</li>
+</ul>
+<p>2.示例</p>
+<p>行内元素：&lt;span&gt; &lt;select&gt; &lt;a&gt; &lt;img&gt; &lt;label&gt; &lt;textarea&gt;等。</p>
+<p>块级元素：&lt;div&gt; &lt;h1&gt; &lt;li&gt; &lt;p&gt; &lt;table&gt; &lt;fieldset&gt; &lt;caption&gt;等。</p>
+<p>3.相互转换</p>
+<p>行内元素转块级元素：定义该元素的css样式display:block;<br>块级元素转行内元素：定义该元素的css样式display:inline;</p>
+<h3 id="CSS盒模型"><a href="#CSS盒模型" class="headerlink" title="CSS盒模型"></a>CSS盒模型</h3><p>CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距，边框，填充，和实际内容。</p>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="400" height="260"><path d="M0,0 L350,0 L350,250 L0,250 L0,0" style="fill:#fff;stroke:black;stroke-width:1;stroke-dasharray:2"/><path d="M30,30 L320,30 L320,210 L30,210 L30,30" style="fill:#0f0;stroke:black;stroke-width:1"/><path d="M60,60 L290,60 L290,180 L60,180 L60,60" style="fill:#fff;stroke:black;stroke-width:1"/><path d="M90,90 L260,90 L260,150 L90,150 L90,90" style="fill:#fff;stroke:black;stroke-width:1;stroke-dasharray:4"/><text x="145" y="20" textlength="60">margin</text><text x="145" y="50" textlength="60">border</text><text x="145" y="80" textlength="60">padding</text><text x="145" y="110" textlength="60">content</text></svg>
+
+<p>1.说明</p>
+<ul>
+<li>Margin(外边距) - 盒子与其他元素之间的边距。</li>
+<li>Border(边框) - 盒子的边框宽度。</li>
+<li>Padding(内边距) - 盒子内边距，即边框与文字的间距。</li>
+<li>Content(内容) - 盒子的内容，显示文本和图像。</li>
+</ul>
+<p>2.元素的宽度和高度</p>
+<p>当指定一个CSS元素的宽度和高度属性时，只是设置了内容区域的宽度和高度。</p>
+<p>最终元素的总宽度计算公式是这样的：</p>
+<p><strong> 总元素的宽度=宽度+左填充+右填充+左边框+右边框+左边距+右边距 </strong></p>
+<p>元素的总高度最终计算公式是这样的：</p>
+<p><strong> 总元素的高度=高度+顶部填充+底部填充+上边框+下边框+上边距+下边距 </strong></p>
+<p>3.浏览器的兼容性问题</p>
+<p>一旦为页面设置了恰当的 DTD，大多数浏览器都会按照上面的图示来呈现内容。然而 IE 5 和 6 的呈现却是不正确的。根据 W3C 的规范，元素内容占据的空间是由 width 属性设置的，而内容周围的 padding 和 border 值是另外计算的。不幸的是，IE5.X 和 6 在怪异模式中使用自己的非标准模型。这些浏览器的 width 属性不是内容的宽度，而是内容、内边距和边框的宽度的总和。</p>
+<p>虽然有方法解决这个问题。但是目前最好的解决方案是回避这个问题。也就是，不要给元素添加具有指定宽度的内边距，而是尝试将内边距或外边距添加到元素的父元素和子元素。</p>
+<p>IE8 及更早IE版本不支持 填充的宽度和边框的宽度属性设。</p>
+<p>解决IE8及更早版本不兼容问题可以在HTML页面声明 &lt;!DOCTYPE html&gt;即可。</p>
+<h3 id="CSS引入方式及link和-import区别"><a href="#CSS引入方式及link和-import区别" class="headerlink" title="CSS引入方式及link和@import区别"></a>CSS引入方式及link和@import区别</h3><p>引入css共有四种方式：内联 内嵌 外链 导入。</p>
+<p>1.内联</p>
+<p>内联方式是指直接在标签元素的style属性中添加CSS样式。</p>
+<p>示例：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>div style<span class="token operator">=</span><span class="token string">"font-size: 20px"</span><span class="token operator">></span><span class="token operator">&lt;</span>/div<span class="token operator">></span>
+</code></pre>
+<p>这通常是个很不好的书写方式，它只能改变当前标签的样式，如果希望多个div 拥有相同的样式，你不得不重复地为每个div添加相同的样式，如果想要修改一种样式，又不得不修改所有的 style 中的代码。很显然，内联方式引入 CSS 代码会导致 HTML 代码变得冗长，且使得网页难以维护。</p>
+<p>2.嵌入</p>
+<p>嵌入方式是指在页面head中的style标签下书写CSS代码。</p>
+<p>示例：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>head<span class="token operator">></span>
+    <span class="token operator">&lt;</span>style<span class="token operator">></span>
+        .content <span class="token punctuation">{</span>
+            background: red<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span>/style<span class="token operator">></span>
+<span class="token operator">&lt;</span>/head<span class="token operator">></span>
+</code></pre>
+<p>嵌入方式的 CSS 只对当前的网页有效。因为 CSS 代码是在 HTML 文件中，所以会使得代码比较集中，当我们写模板网页时这通常比较有利。因为查看模板代码的人可以一目了然地查看 HTML 结构和 CSS 样式。因为嵌入的 CSS 只对当前页面有效，所以当多个页面需要引入相同的 CSS 代码时，这样写会导致代码冗余，也不利于维护。</p>
+<p>3.链接</p>
+<p>链接方式是指在页面head中引入外部的CSS文件。</p>
+<p>示例：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>head<span class="token operator">></span>
+    <span class="token operator">&lt;</span>link rel<span class="token operator">=</span><span class="token string">"stylesheet"</span> href<span class="token operator">=</span><span class="token string">"style.css"</span> /<span class="token operator">></span>
+<span class="token operator">&lt;</span>/head<span class="token operator">></span>
+</code></pre>
+<p>这是最常见的也是最推荐的引入 CSS 的方式。使用这种方式，所有的 CSS 代码只存在于单独的 CSS 文件中，所以具有良好的可维护性。并且所有的 CSS 代码只存在于 CSS 文件中，CSS 文件会在第一次加载时引入，以后切换页面时只需加载 HTML 文件即可。</p>
+<p>4.导入</p>
+<p>导入方式指的是使用 CSS 规则引入外部 CSS 文件。</p>
+<p>示例：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>style<span class="token operator">></span>
+    @import url<span class="token punctuation">(</span>style.css<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span>/style<span class="token operator">></span>
+</code></pre>
+<p>5.link和@import的区别</p>
+<ul>
+<li><p>link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。</p>
+</li>
+<li><p>link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。</p>
+</li>
+<li><p>link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。</p>
+</li>
+<li><p>link支持使用Javascript控制DOM去改变样式；而@import不支持。</p>
+</li>
+</ul>
+<h3 id="CSS选择器及优先级"><a href="#CSS选择器及优先级" class="headerlink" title="CSS选择器及优先级"></a>CSS选择器及优先级</h3><p>1.CSS选择器<br>CSS选择器基本可以分为通配选择器，标签选择器，类选择器，ID选择器，简单属性选择，具体属性选择，根据部分属性值选择，特定属性选择，从结构上来分还有后代选择器，子元素选择器，相邻兄弟选择器以及伪类。</p>
+<ul>
+<li><p>包含选择符（又称后代选择符） E1 E2{}</p>
+</li>
+<li><p>子对象选择符 E1&gt;E2{}</p>
+</li>
+<li><p>ID选择符 #ID{}</p>
+</li>
+<li><p>类选择符 E.className{}</p>
+</li>
+<li><p>选择符分组 E1,E2,E3{}</p>
+</li>
+</ul>
+<p>2.CSS属性继承</p>
+<p>CSS属性继承即父元素定义的CSS属性，子元素也默认使用了该属性。</p>
+<p>可以继承的有 font-size font-family color等</p>
+<p>不可以继承的有 border padding margin background-color width height等</p>
+<p>3.CSS优先级</p>
+<ul>
+<li>相同权值情况下，CSS样式的优先级总结来说，就是——就近原则（离被设置元素越近优先级别越高）：</li>
+</ul>
+<p>优先级为：!important &gt; id &gt; class &gt; tag</p>
+<ul>
+<li>权值不同时，浏览器是根据权值来判断使用哪种css样式的，哪种样式权值高就使用哪种样式。</li>
+</ul>
+<p>标签的权值为1，类选择符的权值为10，ID选择符的权值最高为100。</p>
+<ul>
+<li>!important的优先级比内联样式优先级高。</li>
+</ul>
+<h3 id="前端页面结构"><a href="#前端页面结构" class="headerlink" title="前端页面结构"></a>前端页面结构</h3><p>1.结构层(HTML)</p>
+<p>对网页内容做出了描述。</p>
+<p>2.表现层(CSS)</p>
+<p>对网页内容的样式进行渲染。</p>
+<p>3.行为层(Javascript)</p>
+<p>对网页的各种交互行为进行定义。</p>
+<h3 id="css的基本语句构成"><a href="#css的基本语句构成" class="headerlink" title="css的基本语句构成"></a>css的基本语句构成</h3><pre class=" language-bash"><code class="language-bash">自定义样式名称 <span class="token punctuation">{</span>
+    属性1:值1<span class="token punctuation">;</span>
+    属性2:值2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="常见浏览器及内核"><a href="#常见浏览器及内核" class="headerlink" title="常见浏览器及内核"></a>常见浏览器及内核</h3><ul>
+<li>IE浏览器(Ie内核、Trident内核)</li>
+<li>Firefox浏览器(Gecko)</li>
+<li>谷歌浏览器(webkit)</li>
+<li>opear浏览器(Presto)</li>
+<li>Safari浏览器(webkit)</li>
+</ul>
+<h3 id="几种IE6的BUG及解决方法"><a href="#几种IE6的BUG及解决方法" class="headerlink" title="几种IE6的BUG及解决方法"></a>几种IE6的BUG及解决方法</h3><ul>
+<li><p>IE6怪异解析之padding与border算入宽高<br>  原因：未加文档声明造成非盒模型解析<br>  解决方法：加入文档声明&lt;!doctype html&gt;</p>
+</li>
+<li><p>IE6在块元素、左右浮动、设定marin时造成margin双倍(双边距)<br>  解决方法：display:inline</p>
+</li>
+<li><p>内部盒模型超出父级时，父级被撑大<br>  解决方法：父标签使用overflow:hidden</p>
+</li>
+<li><p>line-height默认行高bug<br>  解决方法：line-height设值</p>
+</li>
+<li><p>行标签之间会有一小段空白<br>  解决方法：float或结构并排(可读性差，不建议)</p>
+</li>
+<li><p>标签高度无法小于19px<br>  解决方法：overflow: hidden;</p>
+</li>
+<li><p>左浮元素margin-bottom失效<br>  解决方法：<br>  1.显示设置高度<br>  2.父标签设置_padding-bottom代替子标签的margin-bottom<br>  3.再放个标签让父标签浮动，子标签margin-bottom，即(margin-bottom与float不同时作用于一个标签)</p>
+</li>
+<li><p>img于块元素中，底边多出空白<br>  解决方法：父级设置overflow: hidden; 或 img { display: block; } 或 _margin: -5px;</p>
+</li>
+<li><p>li之间会有间距<br>  解决方法：float: left;</p>
+</li>
+<li><p>块元素中有文字及右浮动的行元素，行元素换行<br>  解决方法：将行元素置于块元素内的文字前</p>
+</li>
+<li><p>position下的left，bottom错位<br>  解决方法：为父级(relative层)设置宽高或添加*zoom:1</p>
+</li>
+<li><p>子级中有设置position，则父级overflow失效<br>  解决方法：为父级设置position:relative</p>
+</li>
+</ul>
+<h3 id="title与alt的区别"><a href="#title与alt的区别" class="headerlink" title="title与alt的区别"></a>title与alt的区别</h3><p>Alt：当图片不显示时，显示alt中的内容。</p>
+<p>Title：为元素提供信息，鼠标悬停在该元素时，等待1s左右，显示title中的内容。</p>
+<h3 id="css中的reset"><a href="#css中的reset" class="headerlink" title="css中的reset"></a>css中的reset</h3><p>1.常用的CSS reset</p>
+<pre class=" language-bash"><code class="language-bash">html, body, div, span, applet, object, iframe, h1, h2, h3, 
+h4, h5, h6, p, blockquote, pre, a, abbr, acronym, 
+address, big, cite, code, del, dfn, em, font, img, ins, 
+kbd, q, s, samp, small, strike, strong, sub, sup, tt, 
+var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td <span class="token punctuation">{</span> 
+  margin: 0<span class="token punctuation">;</span> 
+  padding: 0<span class="token punctuation">;</span> 
+  border: 0<span class="token punctuation">;</span> 
+  outline: 0<span class="token punctuation">;</span> 
+  font-weight: inherit<span class="token punctuation">;</span> 
+  font-style: inherit<span class="token punctuation">;</span> 
+  font-size: 100%<span class="token punctuation">;</span> 
+  font-family: inherit<span class="token punctuation">;</span> 
+  vertical-align: baseline<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
+:focus <span class="token punctuation">{</span>
+  outline: 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+a, a:link, a:visited, a:hover, a:active<span class="token punctuation">{</span>
+  text-decoration:none
+<span class="token punctuation">}</span> 
+table <span class="token punctuation">{</span>
+  border-collapse: separate<span class="token punctuation">;</span>
+  border-spacing: 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+th, td <span class="token punctuation">{</span>
+  text-align: left<span class="token punctuation">;</span>
+  font-weight: normal<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+img, iframe <span class="token punctuation">{</span>
+  border: none<span class="token punctuation">;</span>
+  text-decoration:none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+ol, ul <span class="token punctuation">{</span>
+  list-style: none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+input, textarea, select, button <span class="token punctuation">{</span>
+  font-size: 100%<span class="token punctuation">;</span>
+  font-family: inherit<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token keyword">select</span> <span class="token punctuation">{</span>
+  margin: inherit<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+hr <span class="token punctuation">{</span>
+  margin: 0<span class="token punctuation">;</span>
+  padding: 0<span class="token punctuation">;</span>
+  border: 0<span class="token punctuation">;</span>
+  color: <span class="token comment" spellcheck="true">#000;</span>
+  background-color: <span class="token comment" spellcheck="true">#000;</span>
+  height: 1px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>2.CSS reset作用</p>
+<p>在 HTML标签在浏览器里有默认的样式，不同浏览器的默认样式之间也会有差别。在切换页面的时候，浏览器的默认样式往往会给我们带来麻烦，影响开发效率。所以解决的方法就是一开始就将浏览器的默认样式全部去掉，更准确说就是通过重新定义标签样式。“覆盖”浏览器的CSS默认属性。最简单的做法就是把浏览器提供的默认样式覆盖掉！这就是CSS reset。</p>
+<h3 id="CSS-sprites"><a href="#CSS-sprites" class="headerlink" title="CSS sprites"></a>CSS sprites</h3><p>1.CSS Sprites简介</p>
+<p>客户端每显示一张图片都会向服务器发送请求，而图片越多请求次数越多，造成延迟的可能性也就越大，给服务器造成的压力也很大，所以通过CSS Sprites技术将多张小图片整合为一张图片，减少对服务器的压力。</p>
+<p>2.CSS Sprites原理</p>
+<p>CSS Sprites其实就是把网页中一些背景图片整合到一张图片文件中，再利用CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位，background-position可以用数字精确的定位出背景图片的位置。</p>
+<p>3.优缺点</p>
+<p><strong> 优点 </strong></p>
+<ul>
+<li><p>利用CSS Sprites能很好地减少网页的http请求，从而大大的提高页面的性能，这也是CSS Sprites最大的优点，也是其被广泛传播和应用的主要原因；</p>
+</li>
+<li><p>CSS Sprites能减少图片的字节，曾经比较过多次3张图片合并成1张图片的字节总是小于这3张图片的字节总和。</p>
+</li>
+<li><p>解决了网页设计师在图片命名上的困扰，只需对一张集合的图片上命名就可以了，不需要对每一个小元素进行命名，从而提高了网页的制作效率。</p>
+</li>
+<li><p>更换风格方便，只需要在一张或少张图片上修改图片的颜色或样式，整个网页的风格就可以改变。维护起来更加方便s。</p>
+</li>
+</ul>
+<p><strong> 缺点 </strong></p>
+<ul>
+<li><p>在图片合并的时候，要把多张图片有序的合理的合并成一张图片，还要留好足够的空间，防止板块内出现不必要的背景；这些还好，最痛苦的是在宽屏，高分辨率的屏幕下的自适应页面，你的图片如果不够宽，很容易出现背景断裂；</p>
+</li>
+<li><p>CSS Sprites在开发的时候比较麻烦，要通过photoshop或其他工具测量计算每一个背景单元的精确位置，非常繁琐。</p>
+</li>
+<li><p>CSS Sprites在维护的时候比较麻烦，如果页面背景有少许改动，一般就要改这张合并的图片，无需改的地方最好不要动，这样避免改动更多的css，如果在原来的地方放不下，又只能往下加图片，这样图片的字节就增加了，还要改动css。</p>
+</li>
+</ul>
+<h3 id="对网站优化的解决方案"><a href="#对网站优化的解决方案" class="headerlink" title="对网站优化的解决方案"></a>对网站优化的解决方案</h3><ul>
+<li>尽可能减少http请求次数，将css, js, 图片各自合并</li>
+<li>使用CDN托管，降低通信距离</li>
+<li>添加Expire/Cache-Control头，提供缓存</li>
+<li>启用Gzip压缩文件</li>
+<li>将css放在页面最上面</li>
+<li>将script放在页面最下面</li>
+<li>避免在css中使用表达式</li>
+<li>将css, js都放在外部文件中</li>
+<li>减少DNS查询</li>
+<li>最小化css, js，减小文件体积</li>
+<li>避免重定向</li>
+<li>移除重复脚本</li>
+<li>配置实体标签ETag</li>
+<li>使用AJAX缓存，让网站内容分批加载，局部更新</li>
+</ul>
+<h3 id="HTML语义化"><a href="#HTML语义化" class="headerlink" title="HTML语义化"></a>HTML语义化</h3><p>1.什么是HTML语义化</p>
+<p>根据内容的结构化（内容语义化），选择合适的标签（代码语义化）便于开发者阅读和写出更优雅的代码的同时让浏览器的爬虫和机器很好地解析。</p>
+<p>2.为什么要语义化？</p>
+<ul>
+<li>为了在没有CSS的情况下，页面也能呈现出很好地内容结构、代码结构:为了裸奔时好看；</li>
+<li>用户体验：例如title、alt用于解释名词或解释图片信息、label标签的活用；</li>
+<li>有利于SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息：爬虫依赖于标签来确定上下文和各个关键字的权重；</li>
+<li>方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页；</li>
+<li>便于团队开发和维护，语义化更具可读性，是下一步吧网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化。</li>
+</ul>
+<p>3.写HTML代码时应注意什么</p>
+<ul>
+<li>尽可能少的使用无语义的标签div和span；</li>
+<li>在语义不明显时，既可以使用div或者p时，尽量用p, 因为p在默认情况下有上下间距，对兼容特殊终端有利；</li>
+<li>不要使用纯样式标签，如：b、font、u等，改用css设置。</li>
+<li>需要强调的文本，可以包含在strong或者em标签中（浏览器预设样式，能用CSS指定就不用他们），strong默认样式是加粗（不要用b），em是斜体（不用i）；</li>
+<li>使用表格时，标题要用caption，表头用thead，主体部分用tbody包围，尾部用tfoot包围。表头和一般单元格要区分开，表头用th，单元格用td；</li>
+<li>表单域要用fieldset标签包起来，并用legend标签说明表单的用途；</li>
+<li>每个input标签对应的说明文本都需要使用label标签，并且通过为input设置id属性，在lable标签中设置for=someld来让说明文本和相对应的input关联起来。</li>
+</ul>
+<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><p>浮动会使当前标签产生向上浮的效果，同时会影响到前后标签、父级标签的位置及 width height 属性。<br>而且同样的代码，在各种浏览器中显示效果也有可能不相同，这样让清除浮动更难了。</p>
+<ul>
+<li>父级div定义height</li>
+<li>结尾处加空div标签clear:both</li>
+<li>父级div定义伪类:after和zoom</li>
+<li>父级div定义overflow:hidden</li>
+<li>父级div定义overflow:auto</li>
+<li>父级div也一起浮动</li>
+<li>父级div定义display:table</li>
+<li>结尾处加br标签clear:both</li>
+</ul>
+<h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><h3 id="Javascript数据类型"><a href="#Javascript数据类型" class="headerlink" title="Javascript数据类型"></a>Javascript数据类型</h3><p>1.Javascript共有6种数据类型</p>
+<p>基本数据类型：Boolean、Number和String。</p>
+<p>复杂数据类型：object。</p>
+<p>特殊数据类型：Undefined、Null。</p>
+<p>2.typeof函数可以返回6种数据类型</p>
+<p>string、number、object、boolean、undefined、function。</p>
+<p>可以点击<a href="https://yk1062008412.github.io/2017/02/27/js容易混淆的几个函数/#typeof和instanceof" target="_blank" rel="noopener">链接</a>查看详情</p>
+<h3 id="显式类型转换与隐式类型转换"><a href="#显式类型转换与隐式类型转换" class="headerlink" title="显式类型转换与隐式类型转换"></a>显式类型转换与隐式类型转换</h3><p>Javascript属于弱类型语言，声明变量不需要指定类型，对变量赋值也不需要类型检查，但是在有的情况下需要特别转换变量的类型。</p>
+<p>1.显式类型转换</p>
+<p>如下函数属于显式类型转换函数：</p>
+<ul>
+<li>toString() 转换为字符串</li>
+<li>parseInt() 转换为数字</li>
+<li>Number()</li>
+<li>Boolean()</li>
+<li>等</li>
+</ul>
+<p>2.隐式类型转换</p>
+<p>如下函数属于显式类型转换函数：</p>
+<ul>
+<li>‘+’加法运算符</li>
+<li>==</li>
+</ul>
+<p>有的人可能看不太懂为什么 “+” 和 “==” 也是隐式类型转换，我举一个例子：</p>
+<pre class=" language-bash"><code class="language-bash">var m <span class="token operator">=</span> 5 + <span class="token boolean">true</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>    //6
+
+console.log<span class="token punctuation">(</span>1 <span class="token operator">==</span> true<span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token boolean">true</span>
+</code></pre>
+<p>也就是说，”+”运算符将true转换成了number类型的1，所以可以和5相加，得到结果6。而”==”运算符把true转换成了1，然后来比较，即: 1 == 1 ,所以为true。</p>
+<h3 id="split-join-reverse-函数"><a href="#split-join-reverse-函数" class="headerlink" title="split(),join(),reverse()函数"></a>split(),join(),reverse()函数</h3><pre class=" language-bash"><code class="language-bash">var a <span class="token operator">=</span> new Array<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+a<span class="token punctuation">[</span>0<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"HTML"</span><span class="token punctuation">;</span>
+a<span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"CSS"</span><span class="token punctuation">;</span>
+a<span class="token punctuation">[</span>2<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"JavaScript"</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token punctuation">[</span><span class="token string">"HTML"</span>, <span class="token string">"CSS"</span>, <span class="token string">"JavaScript"</span><span class="token punctuation">]</span>
+console.log<span class="token punctuation">(</span>a.join<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">;</span>    // HTML,CSS,JavaScript
+console.log<span class="token punctuation">(</span>a.reverse<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">;</span>    // <span class="token punctuation">[</span><span class="token string">"JavaScript"</span>, <span class="token string">"CSS"</span>, <span class="token string">"HTML"</span><span class="token punctuation">]</span>
+var b <span class="token operator">=</span> <span class="token string">'hello JavaScript'</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>b.split<span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">))</span><span class="token punctuation">;</span>    // <span class="token punctuation">[</span><span class="token string">"h"</span>, <span class="token string">"e"</span>, <span class="token string">"l"</span>, <span class="token string">"l"</span>, <span class="token string">"o"</span>, <span class="token string">" "</span>, <span class="token string">"J"</span>, <span class="token string">"a"</span>, <span class="token string">"v"</span>, <span class="token string">"a"</span>, <span class="token string">"S"</span>, <span class="token string">"c"</span>, <span class="token string">"r"</span>, <span class="token string">"i"</span>, <span class="token string">"p"</span>, <span class="token string">"t"</span><span class="token punctuation">]</span>
+console.log<span class="token punctuation">(</span>b.split<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">))</span><span class="token punctuation">;</span>    // <span class="token punctuation">[</span><span class="token string">"hello"</span>, <span class="token string">"JavaScript"</span><span class="token punctuation">]</span>
+</code></pre>
+<p>由实例可以看出：</p>
+<ul>
+<li>split函数用来将字符串分割为数组</li>
+<li>join函数可以将数组中的所有元素拼接为一个字符串</li>
+<li>reverse函数用来将原数组中元素的顺序颠倒。</li>
+</ul>
+<h3 id="数组方法pop-push-unshift-shift"><a href="#数组方法pop-push-unshift-shift" class="headerlink" title="数组方法pop,push,unshift,shift"></a>数组方法pop,push,unshift,shift</h3><ul>
+<li>push()方法</li>
+</ul>
+<p>用于向数组末尾添加元素,并返回新数组的长度</p>
+<pre class=" language-bash"><code class="language-bash">var a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'h'</span>,<span class="token string">'e'</span>,<span class="token string">'l'</span>,<span class="token string">'l'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+var m <span class="token operator">=</span> a.push<span class="token punctuation">(</span><span class="token string">'o'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>    // 5
+console.log<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token punctuation">[</span><span class="token string">"h"</span>, <span class="token string">"e"</span>, <span class="token string">"l"</span>, <span class="token string">"l"</span>, <span class="token string">"o"</span><span class="token punctuation">]</span>
+</code></pre>
+<ul>
+<li>pop()方法</li>
+</ul>
+<p>删除数组最后一个元素,并返回删除的元素。</p>
+<pre class=" language-bash"><code class="language-bash">var a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'h'</span>,<span class="token string">'e'</span>,<span class="token string">'l'</span>,<span class="token string">'l'</span>,<span class="token string">'o'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+var m <span class="token operator">=</span> a.pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>    // o
+console.log<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token punctuation">[</span><span class="token string">"h"</span>, <span class="token string">"e"</span>, <span class="token string">"l"</span>, <span class="token string">"l"</span><span class="token punctuation">]</span>
+</code></pre>
+<ul>
+<li>unshift()方法</li>
+</ul>
+<p>用于向数组头部添加元素，并返回新数组的长度。</p>
+<pre class=" language-bash"><code class="language-bash">var a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'e'</span>,<span class="token string">'l'</span>,<span class="token string">'l'</span>,<span class="token string">'o'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+var m <span class="token operator">=</span> a.unshift<span class="token punctuation">(</span><span class="token string">'h'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>    // 5
+console.log<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token punctuation">[</span><span class="token string">"h"</span>, <span class="token string">"e"</span>, <span class="token string">"l"</span>, <span class="token string">"l"</span>, <span class="token string">"o"</span><span class="token punctuation">]</span>
+</code></pre>
+<ul>
+<li>shift()方法</li>
+</ul>
+<p>删除数组中的第一个元素，并返回删除的第一个元素的值。</p>
+<pre class=" language-bash"><code class="language-bash">var a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'h'</span>,<span class="token string">'e'</span>,<span class="token string">'l'</span>,<span class="token string">'l'</span>,<span class="token string">'o'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+var m <span class="token operator">=</span> a.shift<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>    // h
+console.log<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token punctuation">[</span><span class="token string">"e"</span>, <span class="token string">"l"</span>, <span class="token string">"l"</span>, <span class="token string">"o"</span><span class="token punctuation">]</span>
+</code></pre>
+<h3 id="事件绑定和普通事件"><a href="#事件绑定和普通事件" class="headerlink" title="事件绑定和普通事件"></a>事件绑定和普通事件</h3><pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">></span>
+<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">"en"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>head<span class="token operator">></span>
+    <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>title<span class="token operator">></span>Document<span class="token operator">&lt;</span>/title<span class="token operator">></span>
+<span class="token operator">&lt;</span>/head<span class="token operator">></span>
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+    <span class="token operator">&lt;</span>button id<span class="token operator">=</span><span class="token string">"btn"</span><span class="token operator">></span>点击按钮<span class="token operator">&lt;</span>/button<span class="token operator">></span>
+    <span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+        var btn <span class="token operator">=</span> document.getElementById<span class="token punctuation">(</span><span class="token string">"btn"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        btn.onclick <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console.log<span class="token punctuation">(</span><span class="token string">"普通事件1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        btn.onclick <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console.log<span class="token punctuation">(</span><span class="token string">"普通事件2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        btn.addEventListener<span class="token punctuation">(</span><span class="token string">"click"</span>,function<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console.log<span class="token punctuation">(</span><span class="token string">"绑定事件1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>,false<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        btn.addEventListener<span class="token punctuation">(</span><span class="token string">"click"</span>,function<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console.log<span class="token punctuation">(</span><span class="token string">"绑定事件2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>,false<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&lt;</span>/script<span class="token operator">></span>
+<span class="token operator">&lt;</span>/body<span class="token operator">></span>
+<span class="token operator">&lt;</span>/html<span class="token operator">></span>
+</code></pre>
+<p>上述代码输出为：</p>
+<pre class=" language-bash"><code class="language-bash">普通2
+绑定1
+绑定2
+</code></pre>
+<p>由此可以得出结论：</p>
+<p>普通事件中的onclick只支持单个事件，之前的事件会被之后的onclick事件覆盖，而事件绑定中的addEventListener可以添加多个事件，之前的事件不会被覆盖。</p>
+<h3 id="IE和DOM事件流的区别"><a href="#IE和DOM事件流的区别" class="headerlink" title="IE和DOM事件流的区别"></a>IE和DOM事件流的区别</h3><p>1.参数的差别</p>
+<p>attachEvent()的第一个参数比addEventListener()的事件名多一个”on”，且没有第三个参数，因为IE事件模型只支持冒泡事件流;</p>
+<p>2.事件处理函数作用域的区别</p>
+<p>IE中事件处理程序处于全局作用域，其内的this会指向window;</p>
+<p>而用DOM（0或2）级事件的事件处理程序的作用域是元素作用域，其内的this指向其所属的元素.</p>
+<p>例:<br>document.addEventListener(“click”, function(){<br>  if(this == document){<br>    alert(“此时this指向document”);<br>  }<br>}, false);</p>
+<p>3.事件对象event的属性方法的差别</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">IE</th>
+<th style="text-align:left">DOM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cancelBubble = true</td>
+<td style="text-align:left">stopPropagation() //停止冒泡</td>
+</tr>
+<tr>
+<td style="text-align:left">returnValue = false</td>
+<td style="text-align:left">preventDefault() //阻止元素默认事件</td>
+</tr>
+<tr>
+<td style="text-align:left">srcEelement</td>
+<td style="text-align:left">target //事件目标</td>
+</tr>
+</tbody>
+</table>
+<h3 id="IE和标准下兼容性的写法举例"><a href="#IE和标准下兼容性的写法举例" class="headerlink" title="IE和标准下兼容性的写法举例"></a>IE和标准下兼容性的写法举例</h3><p>var ev = ev || window.event<br>document.documentElement.clientWidth || document.body.clientWidth<br>var target = ev.srcElement||ev.target</p>
+<h3 id="get和post的区别"><a href="#get和post的区别" class="headerlink" title="get和post的区别"></a>get和post的区别</h3><ul>
+<li><p>GET请求的数据会附在URL之后(就是把数据放置在HTTP协议头中)，以?分割URL和传输数据，参数之间以&amp;相连。POST把提交的数据则放置在是HTTP包的Request body包体中。</p>
+</li>
+<li><p>GET方式提交的数据最多只能是1024字节，理论上POST没有限制，可传较大量的数据，IIS4中最大为80KB，IIS5中为100KB。</p>
+</li>
+<li><p>在ASP中，服务端获取GET请求参数用Request.QueryString，获取POST请求参数用Request.Form。</p>
+</li>
+<li><p>POST的安全性要比GET的安全性高。</p>
+</li>
+<li><p>Get是向服务器发送取数据的一种请求，而Post是向服务器提交数据的一种请求。</p>
+</li>
+</ul>
+<h3 id="call和apply"><a href="#call和apply" class="headerlink" title="call和apply"></a>call和apply</h3><p>call和apply方法都是用来调用一个对象的一个方法，以另一个对象来替换当前对象。</p>
+<p>唯一区别就是call方法的第二个参数及之后的参数可以是任意类型，而apply的第二个参数必须是数组形式。</p>
+<p>具体联系和区别，点击<a href="https://yk1062008412.github.io/2017/02/27/js容易混淆的几个函数/#call和apply" target="_blank" rel="noopener">链接</a>查看</p>
+<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>事件委托是利用事件的冒泡原理来实现的，何为事件冒泡呢？就是事件从最深的节点开始，然后逐步向上传播事件，举个例子：页面上有这么一个节点树，div&gt;ul&gt;li&gt;a;比如给最里面的a加一个click点击事件，那么这个事件就会一层一层的往外执行，执行顺序a&gt;li&gt;ul&gt;div，有这样一个机制，那么我们给最外面的div加点击事件，那么里面的ul，li，a做点击事件的时候，都会冒泡到最外层的div上，所以都会触发，这就是事件委托，委托它们父级代为执行事件。</p>
+<h3 id="阻止事件冒泡和默认事件"><a href="#阻止事件冒泡和默认事件" class="headerlink" title="阻止事件冒泡和默认事件"></a>阻止事件冒泡和默认事件</h3><p>1.阻止事件冒泡,使成为捕获型事件触发机制</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token keyword">function</span> stopBubble<span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    //如果提供了事件对象，则这是一个非IE浏览器
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> e <span class="token operator">&amp;&amp;</span> e.stopPropagation<span class="token punctuation">)</span>
+        //因此它支持W3C的stopPropagation<span class="token punctuation">(</span><span class="token punctuation">)</span>方法
+        e.stopPropagation<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        //否则，我们需要使用IE的方式来取消事件冒泡
+        window.event.cancelBubble <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>2.停止默认事件默认行为</p>
+<pre class=" language-bash"><code class="language-bash">//阻止浏览器的默认行为 
+<span class="token keyword">function</span> stopDefault<span class="token punctuation">(</span> e <span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    //阻止默认浏览器动作<span class="token punctuation">(</span>W3C<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> e <span class="token operator">&amp;&amp;</span> e.preventDefault<span class="token punctuation">)</span>
+        e.preventDefault<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        //IE中阻止函数器默认动作的方式
+    <span class="token keyword">else</span>
+        window.event.returnValue <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>举例：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">></span>
+<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">"en"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>head<span class="token operator">></span>
+    <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"UTF-8"</span> /<span class="token operator">></span>
+    <span class="token operator">&lt;</span>title<span class="token operator">></span>Document<span class="token operator">&lt;</span>/title<span class="token operator">></span>
+    <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"</span><span class="token operator">></span><span class="token operator">&lt;</span>/script<span class="token operator">></span>
+    <span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+        <span class="token variable"><span class="token variable">$(</span>document<span class="token variable">)</span></span>.ready<span class="token punctuation">(</span>function<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">$(</span><span class="token string">'div.c1'</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span>function<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>alert<span class="token punctuation">(</span><span class="token string">'单击了div C1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">$(</span><span class="token string">'div.c2'</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span>function<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>alert<span class="token punctuation">(</span><span class="token string">'单击了div C2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>stopBubble<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token variable"><span class="token variable">$(</span>document<span class="token variable">)</span></span>.click<span class="token punctuation">(</span>function<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>alert<span class="token punctuation">(</span><span class="token string">'单击了document'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">$(</span><span class="token string">'#txt1'</span><span class="token punctuation">)</span>.val<span class="token punctuation">(</span><span class="token string">'123'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">$(</span><span class="token string">'#txt1'</span><span class="token punctuation">)</span>.click<span class="token punctuation">(</span>function<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>stopBubble<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">$(</span><span class="token string">'#txt1'</span><span class="token punctuation">)</span>.keydown<span class="token punctuation">(</span>function<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>stopDefault<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>alert<span class="token punctuation">(</span><span class="token string">'按下了键值'</span>+e.keyCode<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token keyword">function</span> stopBubble<span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            //如果提供了事件对象，则这是一个非IE浏览器
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> e <span class="token operator">&amp;&amp;</span> e.stopPropagation <span class="token punctuation">)</span>
+                //因此它支持W3C的stopPropagation<span class="token punctuation">(</span><span class="token punctuation">)</span>方法
+                e.stopPropagation<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span>
+                //否则，我们需要使用IE的方式来取消事件冒泡
+                window.event.cancelBubble <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        //阻止浏览器的默认行为
+        <span class="token keyword">function</span> stopDefault<span class="token punctuation">(</span> e <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            //阻止默认浏览器动作<span class="token punctuation">(</span>W3C<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> e <span class="token operator">&amp;&amp;</span> e.preventDefault <span class="token punctuation">)</span>
+                e.preventDefault<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                //IE中阻止函数器默认动作的方式
+            <span class="token keyword">else</span>
+                window.event.returnValue <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span>/script<span class="token operator">></span>
+<span class="token operator">&lt;</span>/head<span class="token operator">></span>
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"c1"</span><span class="token operator">></span>测试的文字,这里是样式C1,单击以冒泡的形式触发事件.<span class="token operator">&lt;</span>/div<span class="token operator">></span><span class="token operator">&lt;</span>hr/<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"c2"</span><span class="token operator">></span>测试的文字,这里是样式C2,单击以捕获的形式触发事件.<span class="token operator">&lt;</span>/div<span class="token operator">></span><span class="token operator">&lt;</span>hr/<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token operator">&lt;</span>input id<span class="token operator">=</span><span class="token string">"txt1"</span> name<span class="token operator">=</span><span class="token string">"Text1"</span> type<span class="token operator">=</span><span class="token string">"text"</span> /<span class="token operator">></span><span class="token operator">&lt;</span>/div<span class="token operator">></span><span class="token operator">&lt;</span>hr/<span class="token operator">></span>
+<span class="token operator">&lt;</span>/body<span class="token operator">></span>
+<span class="token operator">&lt;</span>/html<span class="token operator">></span>
+</code></pre>
+<h3 id="JSONP原理"><a href="#JSONP原理" class="headerlink" title="JSONP原理"></a>JSONP原理</h3><p>利用&lt;script&gt;标签没有跨域限制的“漏洞”,来达到与第三方通讯的目的。当需要通讯时，本站脚本创建一个&lt;script&gt;元素，地址指向第三方的API网址，例如：&lt;script src = &quot;http：//<a href="http://www.example.net/api?param1=1&amp;param2=2&quot;&gt;&lt;/script&gt;,并提供一个回调函数来接收数据(函数名可约定，或通过地址参数传递)。第三方产生的响应为json数据的包装" target="_blank" rel="noopener">www.example.net/api?param1=1&amp;param2=2&quot;&gt;&lt;/script&gt;,并提供一个回调函数来接收数据(函数名可约定，或通过地址参数传递)。第三方产生的响应为json数据的包装</a>(故称之为jsonp,即json padding)，形如：callback({“name”:”hax”,”gender”:”Male”}).这样浏览器会调用callback函数，并传递解析后json对象作为参数。本站脚本可在callback函数里处理所传入的数据。</p>
+<h3 id="js本地对象，内置对象和宿主对象"><a href="#js本地对象，内置对象和宿主对象" class="headerlink" title="js本地对象，内置对象和宿主对象"></a>js本地对象，内置对象和宿主对象</h3><p>宿主环境：一般宿主环境由外壳程序创建与维护，只要能提供js引擎执行的环境都可称之为外壳程序。如：web浏览器，一些桌面应用系统等。即由web浏览器或是这些桌面应用系统早就的环境即宿主环境。</p>
+<p>1.本地对象：独立于宿主环境的 ECMAScript 实现提供的对象。</p>
+<p>“本地对象”包括：</p>
+<p>Object、Function、Array、String、Boolean、Number、Date、RegExp、Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError</p>
+<p>本地对象是ECMA-2定义的类（引用类型）。</p>
+<p>2.内置对象：由ECMAScript实现提供的，独立与宿主环境的所有对象，在ECMAScript程序开始执行时出现。</p>
+<p>Global 和 Math。</p>
+<p>内置对象其实也是本地对象。</p>
+<p>3.宿主对象</p>
+<p>由ECMAScript实现的宿主环境提供的对象，可以理解为：浏览器提供的对象。所有的BOM和DOM都是宿主对象。</p>
+<h3 id="onload和document-ready"><a href="#onload和document-ready" class="headerlink" title="onload和document.ready"></a>onload和document.ready</h3><p>window.onload方法必须等到页面内包括图片的所有元素加载完毕后才能执行。</p>
+<p>$(document).ready()是DOM结构绘制完毕后就执行，不必等到加载完毕。</p>
+<p>也就是说，先执行ready方法，再执行onload方法。</p>
+<h3 id="“-”和”-”"><a href="#“-”和”-”" class="headerlink" title="“==”和”===”"></a>“==”和”===”</h3><p>“===”叫做严格运算符，”==”叫做相等运算符。</p>
+<p>严格运算符的运算规则如下:</p>
+<ul>
+<li>不同类型值如果两个值的类型不同，直接返回false。</li>
+<li>同一类的原始类型值同一类型的原始类型的值（数值、字符串、布尔值）比较时，值相同就返回true，值不同就返回false。</li>
+<li>同一类的复合类型值两个复合类型（对象、数组、函数）的数据比较时，不是比较它们的值是否相等，而是比较它们是否指向同一个对象。</li>
+<li>undefined和nullundefined 和 null 与自身严格相等。</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">console.log<span class="token punctuation">(</span>null <span class="token operator">==</span><span class="token operator">=</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span>    //true
+console.log<span class="token punctuation">(</span>undefined <span class="token operator">==</span><span class="token operator">=</span> undefined<span class="token punctuation">)</span><span class="token punctuation">;</span>    //true
+</code></pre>
+<p>相等运算符在比较相同类型的数据时，与严格相等运算符完全一样。</p>
+<p>在比较不同类型的数据时，相等运算符会先将数据进行类型转换，然后再用严格相等运算符比较。</p>
+<p>类型转换规则如下：</p>
+<ul>
+<li>原始类型的值原始类型的数据会转换成数值类型再进行比较。字符串和布尔值都会转换成数值，所以题主的问题中会有第二个string输出。</li>
+<li>对象与原始类型值比较对象（这里指广义的对象，包括数值和函数）与原始类型的值比较时，对象转化成原始类型的值，再进行比较。</li>
+<li>undefined和nullundefined和null与其他类型的值比较时，结果都为false，它们互相比较时结果为true。</li>
+<li>相等运算符的缺点相等运算符隐藏的类型转换，会带来一些违反直觉的结果。</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">console.log<span class="token punctuation">(</span><span class="token string">''</span> <span class="token operator">==</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token boolean">false</span>
+console.log<span class="token punctuation">(</span>0 <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token boolean">true</span>
+console.log<span class="token punctuation">(</span>0 <span class="token operator">==</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token boolean">true</span>
+console.log<span class="token punctuation">(</span>false <span class="token operator">==</span> <span class="token string">'false'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token boolean">false</span>
+console.log<span class="token punctuation">(</span>false <span class="token operator">==</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token boolean">true</span>
+console.log<span class="token punctuation">(</span>false <span class="token operator">==</span> undefined<span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token boolean">false</span>
+console.log<span class="token punctuation">(</span>false <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token boolean">false</span>
+console.log<span class="token punctuation">(</span>null <span class="token operator">==</span> undefined<span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token boolean">true</span>
+console.log<span class="token punctuation">(</span><span class="token string">' \t\r\n '</span> <span class="token operator">==</span> 0<span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token boolean">true</span>
+</code></pre>
+<p>这就是为什么建议尽量不要使用相等运算符。至于使用相等运算符会不会对后续代码造成意外影响，答案是有可能会。</p>
+<pre class=" language-bash"><code class="language-bash">var a <span class="token operator">=</span> undefined<span class="token punctuation">;</span>
+if<span class="token punctuation">(</span><span class="token operator">!</span>a<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console.log<span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> //1
+<span class="token punctuation">}</span>
+var b <span class="token operator">=</span> undefined<span class="token punctuation">;</span>
+if<span class="token punctuation">(</span>b <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console.log<span class="token punctuation">(</span><span class="token string">"2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> //2
+<span class="token punctuation">}</span>
+var c <span class="token operator">=</span> undefined<span class="token punctuation">;</span>
+if<span class="token punctuation">(</span>c <span class="token operator">==</span><span class="token operator">=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console.log<span class="token punctuation">(</span><span class="token string">"3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> //无输出
+<span class="token punctuation">}</span>
+</code></pre>
+<p>也就是说当a为undefined时，输出的值会有变化，而在编程中对象变成undefined实在是太常见了。</p>
+<h3 id="Javascript同源策略"><a href="#Javascript同源策略" class="headerlink" title="Javascript同源策略"></a>Javascript同源策略</h3><ul>
+<li><p>同源策略是客户端脚本（尤其是Javascript）的重要的安全度量标准，其目的是防止某个文档或脚本从多个不同源装载。</p>
+</li>
+<li><p>一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是主机名、协议和端口号的组合</p>
+</li>
+<li><p>不遵循同源策略的标签：&lt;script&gt;,&lt;img&gt;,&lt;iframe&gt;中的src，href都可以任意链接网络资源。</p>
+</li>
+</ul>
+<p>本章完！</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://xdlmr.github.io" class="b-link-green">MrLi</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2017/08/08/qian-duan-chang-jian-zhi-shi-dian/" class="b-link-green">常见前端知识点</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/2017/08/27/javascript-rong-yi-hun-yao-de-ji-ge-han-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="js容易混淆的几个函数">
+                        
+                        <span class="card-title">js容易混淆的几个函数</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">今天我来为大家介绍一下Javascript中比较容易混淆的几个函数。
+call和apply在Javascript中，call和apply都是用另一个对象替换当前对象的方法。
+call()定义call方法用来调用一个对象的一个方法，以另一个对</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-08-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Javascript/" target="_blank">
+                        <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2017/08/05/javascript-bi-bao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="javascript闭包">
+                        
+                        <span class="card-title">javascript闭包</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">本文讲述Javascript的闭包。
+引言(简单了解js闭包)在讲述js闭包之前，我们先来说一个简单的例子:
+var a = 1;
+function fn(){
+    var b = 2;
+    console.log(&quot;a:</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-08-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js/" target="_blank">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">目录</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://xdlmr.github.io/" target="_blank">Mrli</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

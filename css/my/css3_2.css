@@ -1,0 +1,8 @@
+.myli_nth li:nth-child(2n+1){
+	background: #FFD700;
+}
+
+.myli_nth li:nth-child(2n){
+	background: #BFEFFF;
+}
+

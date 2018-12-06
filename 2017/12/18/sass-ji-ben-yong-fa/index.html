@@ -1,0 +1,1077 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="SASS用法, MrLi">
+    <meta name="description" content="SASS起源CSS不是一种编程语言，写起来比较麻烦，而且如果要修改整体颜色风格的话，比较费事，需要改很多地方，还要一个一个地找。所以如果将一些公共元素定义为函数中的变量，就可以只修改一处，多处共同更新了。这就是”CSS预处理器”的初步提现。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>SASS用法 | MrLi</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">MrLi</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">MrLi</div>
+        <div class="logo-desc">
+            
+            生活在于分享
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xdlmr" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xdlmr" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        SASS用法
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/CSS/" target="_blank">
+                    <span class="chip bg-color">CSS</span>
+                </a>
+                
+                <a href="/tags/SASS/" target="_blank">
+                    <span class="chip bg-color">SASS</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/CSS/" class="post-category" target="_blank">
+                        CSS
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2017-12-18
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="SASS起源"><a href="#SASS起源" class="headerlink" title="SASS起源"></a>SASS起源</h2><p>CSS不是一种编程语言，写起来比较麻烦，而且如果要修改整体颜色风格的话，比较费事，需要改很多地方，还要一个一个地找。所以如果将一些公共元素定义为函数中的变量，就可以只修改一处，多处共同更新了。这就是”CSS预处理器”的初步提现。</p>
+<p>CSS预处理器：CSS 预处理器用一种专门的编程语言，进行 Web 页面样式设计，然后再编译成正常的 CSS 文件，以供项目使用。CSS 预处理器为 CSS 增加一些编程的特性，无需考虑浏览器的兼容性问题。其基本思想是，用一种专门的编程语言，为 CSS 增加了一些编程的特性，将 CSS 作为目标生成文件，然后开发者就只要使用这种语言进行编码工作。</p>
+<p>常用的”CSS预处理器”有：<a href="http://sass-lang.com/" target="_blank" rel="noopener">SASS</a> , <a href="http://lesscss.org/" target="_blank" rel="noopener">LESS</a> , <a href="http://www.zhangxinxu.com/jq/stylus/" target="_blank" rel="noopener">Stylus</a><br><a id="more"></a></p>
+<h2 id="SASS简介"><a href="#SASS简介" class="headerlink" title="SASS简介"></a>SASS简介</h2><p>SASS是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护。</p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="后缀名"><a href="#后缀名" class="headerlink" title="后缀名"></a>后缀名</h3><p>SASS有两种文件后缀名：test.sass和test.scss。两个的用法都差不多，区别在于，sass语法更适用于python类不带括号和分号的程序员，scss跟我们平时写css的格式差不多。</p>
+<pre class=" language-bash"><code class="language-bash">//后缀名为.sass的写法
+body
+  background: <span class="token comment" spellcheck="true">#eee</span>
+  font-size:12px
+p
+  background: <span class="token comment" spellcheck="true">#0982c1</span>
+
+//后缀名为.scss的写法
+body <span class="token punctuation">{</span>
+  background: <span class="token comment" spellcheck="true">#eee;</span>
+  font-size:12px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+p <span class="token punctuation">{</span>
+  background: <span class="token comment" spellcheck="true">#0982c1;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="普通变量"><a href="#普通变量" class="headerlink" title="普通变量"></a>普通变量</h4><p>SASS允许使用变量来定义属性名,CSS类名,或属性值，变量的定义类似于PHP，以”$”符号开头：</p>
+<p>定义属性值：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token variable">$red</span><span class="token keyword">:</span> <span class="token comment" spellcheck="true">#f00;</span>
+
+div <span class="token punctuation">{</span>
+    color: <span class="token variable">$red</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>定义属性名：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token variable">$direction</span><span class="token keyword">:</span> <span class="token function">top</span><span class="token punctuation">;</span>
+
+div<span class="token punctuation">{</span>
+    border-<span class="token comment" spellcheck="true">#{$direction}: 1px solid #eee;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>定义类名：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token variable">$direction</span><span class="token keyword">:</span> <span class="token function">top</span><span class="token punctuation">;</span>
+
+.myborder-<span class="token comment" spellcheck="true">#{$direction} {</span>
+    border-<span class="token comment" spellcheck="true">#{$direction}: 1px solid #eee;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="默认变量"><a href="#默认变量" class="headerlink" title="默认变量"></a>默认变量</h4><p>SASS设置默认变量</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token variable">$baseLineHeight</span><span class="token keyword">:</span> 1.5 <span class="token operator">!</span>default<span class="token punctuation">;</span>
+
+body<span class="token punctuation">{</span>
+    line-height: <span class="token variable">$baseLineHeight</span><span class="token punctuation">;</span> //line-height: 1.5<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>SASS的默认变量一般用来设置默认值，然后根据需求来覆盖，覆盖的方式也很简单，只需要在默认变量之前重新声明下变量即可。</p>
+<pre class=" language-bash"><code class="language-bash">//sass style
+//-------------------------------
+<span class="token variable">$baseLineHeight</span><span class="token keyword">:</span>        2<span class="token punctuation">;</span>
+<span class="token variable">$baseLineHeight</span><span class="token keyword">:</span>        1.5 <span class="token operator">!</span>default<span class="token punctuation">;</span>
+
+body<span class="token punctuation">{</span>
+    line-height: <span class="token variable">$baseLineHeight</span><span class="token punctuation">;</span> //line-height: 2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="多值变量"><a href="#多值变量" class="headerlink" title="多值变量"></a>多值变量</h4><p>多值变量分为list类型和map类型，list类似于js中的数组，map类似于js中的对象。</p>
+<ul>
+<li>list变量</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token variable">$linkColor</span><span class="token keyword">:</span><span class="token comment" spellcheck="true">#08c #333 !default;//第一个值为默认值，第二个鼠标滑过值</span>
+a <span class="token punctuation">{</span>
+  color:nth<span class="token punctuation">(</span><span class="token variable">$linkColor</span>,1<span class="token punctuation">)</span><span class="token punctuation">;</span> //color: <span class="token comment" spellcheck="true">#08c;</span>
+
+  <span class="token operator">&amp;</span>:hover <span class="token punctuation">{</span>
+    color:nth<span class="token punctuation">(</span><span class="token variable">$linkColor</span>,2<span class="token punctuation">)</span><span class="token punctuation">;</span> //color: <span class="token comment" spellcheck="true">#333; </span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>map变量</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">// SASS
+<span class="token variable">$headings</span><span class="token keyword">:</span> <span class="token punctuation">(</span>h1: 2em, h2: 1.5em, h3: 1.2em<span class="token punctuation">)</span><span class="token punctuation">;</span>
+@each <span class="token variable">$header</span>, <span class="token variable">$size</span> <span class="token keyword">in</span> <span class="token variable">$headings</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">#{$header} {</span>
+    font-size: <span class="token variable">$size</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+// CSS
+h1 <span class="token punctuation">{</span>
+  font-size: 2em<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+h2 <span class="token punctuation">{</span>
+  font-size: 1.5em<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+h3 <span class="token punctuation">{</span>
+  font-size: 1.2em<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>SASS提供了两种类型的注释：</p>
+<ul>
+<li><p>单行注释 “// 注释”,只保留在SASS源文件中，编译后的CSS文件无该注释。</p>
+</li>
+<li><p>多行注释 “/<em> 注释 </em>/“,这种注释会保留到编译后的CSS文件里。</p>
+</li>
+<li><p>多行注释里还有一种, “/<em>! 注释 </em>/“,在 “/* “后面加一个感叹号 “!”,表明这是重要注释，即使是压缩模式编译，也会保留这行注释，通常用来声明版权信息。</p>
+</li>
+</ul>
+<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><p>SASS嵌套分为两种：选择器嵌套和属性嵌套。</p>
+<p>1.选择器嵌套</p>
+<p>选择器嵌套指的是在一个选择器中嵌套另一个选择器来实现继承，从而增强了sass文件的结构性和可读性.</p>
+<p>在选择器嵌套中，可以使用&amp;表示父元素选择器.</p>
+<pre class=" language-bash"><code class="language-bash">// SASS
+<span class="token comment" spellcheck="true">#top_nav{</span>
+  background-color:<span class="token comment" spellcheck="true">#333;</span>
+  li<span class="token punctuation">{</span>
+    float:left<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  a<span class="token punctuation">{</span>
+    display: block<span class="token punctuation">;</span>
+    padding: 0 10px<span class="token punctuation">;</span>
+    color: <span class="token comment" spellcheck="true">#fff;</span>
+
+    <span class="token operator">&amp;</span>:hover<span class="token punctuation">{</span>
+      color:<span class="token comment" spellcheck="true">#ddd;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+// CSS
+<span class="token comment" spellcheck="true">#top_nav{</span>
+  background-color:<span class="token comment" spellcheck="true">#333;</span>
+<span class="token punctuation">}</span>  
+<span class="token comment" spellcheck="true">#top_nav li{</span>
+  float:left<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">#top_nav a{</span>
+  display: block<span class="token punctuation">;</span>
+  padding: 0 10px<span class="token punctuation">;</span>
+  color: <span class="token comment" spellcheck="true">#fff;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">#top_nav a:hover{</span>
+  color:<span class="token comment" spellcheck="true">#ddd;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>2.属性嵌套</p>
+<p><strong> 属性后面必须加上冒号 </strong></p>
+<pre class=" language-bash"><code class="language-bash">//SASS
+p <span class="token punctuation">{</span>
+  border: <span class="token punctuation">{</span>
+    color: red<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+//CSS
+p <span class="token punctuation">{</span>
+  border-color: red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><p>SASS支持运算功能，可以对数值型的参数，变量等进行加减乘除等运算。</p>
+<p><strong> 运算符前后请留一个空格，不然会出错。 </strong></p>
+<pre class=" language-bash"><code class="language-bash"><span class="token variable">$var</span><span class="token keyword">:</span> 80%<span class="token punctuation">;</span>
+body <span class="token punctuation">{</span>
+  margin: <span class="token punctuation">(</span>14px/2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  top: 50px + 100px<span class="token punctuation">;</span>
+  width: <span class="token variable">$var</span> + 10%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="CSS重用"><a href="#CSS重用" class="headerlink" title="CSS重用"></a>CSS重用</h2><h3 id="继承-extend"><a href="#继承-extend" class="headerlink" title="继承@extend"></a>继承@extend</h3><p>SASS允许一个选择器，继承另一个选择器的样式。关键词为 “@extend”.</p>
+<p>例：class2要继承class1的样式。</p>
+<pre class=" language-bash"><code class="language-bash">// SASS
+.class1 <span class="token punctuation">{</span>
+  border: 1px solid <span class="token comment" spellcheck="true">#ddd;</span>
+<span class="token punctuation">}</span>
+.class2 <span class="token punctuation">{</span>
+  @extend .class1<span class="token punctuation">;</span>
+  font-size: 1.2em<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+// CSS
+.class1 <span class="token punctuation">{</span>
+  border: 1px solid <span class="token comment" spellcheck="true">#ddd;</span>
+<span class="token punctuation">}</span>
+.class2 <span class="token punctuation">{</span>
+  border: 1px solid <span class="token comment" spellcheck="true">#ddd;</span>
+  font-size: 1.2em<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="定义代码块-mixin-include"><a href="#定义代码块-mixin-include" class="headerlink" title="定义代码块@mixin,@include"></a>定义代码块@mixin,@include</h3><p>Mixin类似于C语言的宏，是可以重用的代码块。</p>
+<p>mixin有两种类型：一种是不带参数的mixin，一种是带参数的mixin；</p>
+<h4 id="不带参数mixin"><a href="#不带参数mixin" class="headerlink" title="不带参数mixin"></a>不带参数mixin</h4><pre class=" language-bash"><code class="language-bash">// SASS
+@mixin center-block <span class="token punctuation">{</span>
+  margin-left:auto<span class="token punctuation">;</span>
+  margin-right:auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+.demo <span class="token punctuation">{</span>
+  @include center-block<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+//CSS
+.demo <span class="token punctuation">{</span>
+  margin-left:auto<span class="token punctuation">;</span>
+  margin-right:auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="带参数mixin"><a href="#带参数mixin" class="headerlink" title="带参数mixin"></a>带参数mixin</h4><p>带参数的mixin，如果不指定参数，则使用默认值。</p>
+<pre class=" language-bash"><code class="language-bash">// SASS
+@mixin left<span class="token punctuation">(</span><span class="token variable">$value</span><span class="token keyword">:</span> 10px<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  float: left<span class="token punctuation">;</span>
+  margin-right: <span class="token variable">$value</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+div1 <span class="token punctuation">{</span>
+  @include left<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+div2 <span class="token punctuation">{</span>
+  @include left<span class="token punctuation">(</span>20px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+// CSS
+div1 <span class="token punctuation">{</span>
+  float: left<span class="token punctuation">;</span>
+  margin-right: 10px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+div2 <span class="token punctuation">{</span>
+  float: left<span class="token punctuation">;</span>
+  margin-right: 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="导入CSS-import"><a href="#导入CSS-import" class="headerlink" title="导入CSS @import"></a>导入CSS @import</h3><ul>
+<li>@import命令，用来插入外部文件。<br>  @import “path/filename.scss”;</li>
+<li>如果插入的是.css文件，则等同于css的import命令。<br>  @import “foo.css”;</li>
+</ul>
+<p>通过@import将b.css文件导入a.scss文件,b.css文件的内容不会被导入编译后的a.css文件中。</p>
+<p>通过@import将c.scss文件导入a.scss文件,c.scss文件的内容将会被导入编译后的a.css文件中。</p>
+<h2 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h2><p>SASS不仅有变量，运算符等用法，还有循环、判断等函数用法，使CSS更灵活。</p>
+<h3 id="if-else判断"><a href="#if-else判断" class="headerlink" title="if,else判断"></a>if,else判断</h3><pre class=" language-bash"><code class="language-bash">p <span class="token punctuation">{</span>
+  @if 1 + 1 <span class="token operator">==</span> 2 <span class="token punctuation">{</span> border: 1px solid<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  @if 5 <span class="token operator">&lt;</span> 3 <span class="token punctuation">{</span> border: 2px dotted<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+@if lightness<span class="token punctuation">(</span><span class="token variable">$color</span><span class="token punctuation">)</span> <span class="token operator">></span> 30% <span class="token punctuation">{</span>
+  background-color: <span class="token comment" spellcheck="true">#000;</span>
+<span class="token punctuation">}</span> @else <span class="token punctuation">{</span>
+  background-color: <span class="token comment" spellcheck="true">#fff;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><pre class=" language-bash"><code class="language-bash">// SASS
+@for <span class="token variable">$i</span> from 1 to 3 <span class="token punctuation">{</span>
+  .item-<span class="token comment" spellcheck="true">#{$i} { width: 2em * $i; }</span>
+<span class="token punctuation">}</span>
+
+// CSS
+.item-1 <span class="token punctuation">{</span>
+  width: 2em<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+.item-2 <span class="token punctuation">{</span>
+  width: 4em<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+.item-3 <span class="token punctuation">{</span>
+  width: 6em<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><pre class=" language-bash"><code class="language-bash">// SASS
+<span class="token variable">$i</span><span class="token keyword">:</span> 6<span class="token punctuation">;</span>
+@while <span class="token variable">$i</span> <span class="token operator">></span> 0 <span class="token punctuation">{</span>
+  .item-<span class="token comment" spellcheck="true">#{$i} { width: 2em * $i; }</span>
+  <span class="token variable">$i</span><span class="token keyword">:</span> <span class="token variable">$i</span> - 2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+// CSS
+.item-6 <span class="token punctuation">{</span>
+  width: 12em<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+.item-4 <span class="token punctuation">{</span>
+  width: 8em<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+.item-2 <span class="token punctuation">{</span>
+  width: 4em<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="each循环"><a href="#each循环" class="headerlink" title="each循环"></a>each循环</h3><pre class=" language-bash"><code class="language-bash">// SASS
+<span class="token variable">$img</span>-list: a,b,c,d<span class="token punctuation">;</span>
+@each <span class="token variable">$img</span> <span class="token keyword">in</span> img-list <span class="token punctuation">{</span>
+  .show-<span class="token comment" spellcheck="true">#{$img} {</span>
+    background-image: url<span class="token punctuation">(</span><span class="token string">"/image/#{<span class="token variable">$img</span>}.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+// CSS
+.show-a <span class="token punctuation">{</span>
+  background-image: url<span class="token punctuation">(</span><span class="token string">"/image/a.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+.show-b <span class="token punctuation">{</span>
+  background-image: url<span class="token punctuation">(</span><span class="token string">"/image/b.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+.show-c <span class="token punctuation">{</span>
+  background-image: url<span class="token punctuation">(</span><span class="token string">"/image/c.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+.show-d <span class="token punctuation">{</span>
+  background-image: url<span class="token punctuation">(</span><span class="token string">"/image/d.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="自定义函数-function"><a href="#自定义函数-function" class="headerlink" title="自定义函数@function"></a>自定义函数@function</h3><p>SASS为用户提供了自定义编写函数的方法。</p>
+<pre class=" language-bash"><code class="language-bash">// SASS
+@function multiply<span class="token punctuation">(</span><span class="token variable">$i</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  @return <span class="token variable">$i</span> * 2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">#navbar {</span>
+  font-size: multiply<span class="token punctuation">(</span>15px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+// CSS
+<span class="token comment" spellcheck="true">#navbar {</span>
+  font-size: 30px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>本章完！</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://xdlmr.github.io" class="b-link-green">MrLi</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2017/12/18/sass-ji-ben-yong-fa/" class="b-link-green">SASS用法</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/2018/01/06/javascript-shu-ju-jie-gou-xiang-hu-zhuan-huan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="数据结构的相互转换">
+                        
+                        <span class="card-title">数据结构的相互转换</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">本文介绍 Map与Array,Object,JSON之间的相互转换
+Map转为ArrayMap转为Array,直接使用es6引入的扩展运算符(…)。
+let myMap = new Map().set(true, 7).set({foo: </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Javascript/" target="_blank">
+                        <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                    <a href="/tags/ES6/" target="_blank">
+                        <span class="chip bg-color">ES6</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2017/08/27/javascript-rong-yi-hun-yao-de-ji-ge-han-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="js容易混淆的几个函数">
+                        
+                        <span class="card-title">js容易混淆的几个函数</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">今天我来为大家介绍一下Javascript中比较容易混淆的几个函数。
+call和apply在Javascript中，call和apply都是用另一个对象替换当前对象的方法。
+call()定义call方法用来调用一个对象的一个方法，以另一个对</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-08-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Javascript/" target="_blank">
+                        <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">目录</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://xdlmr.github.io/" target="_blank">Mrli</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

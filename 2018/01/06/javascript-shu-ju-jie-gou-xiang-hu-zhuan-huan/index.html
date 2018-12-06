@@ -1,0 +1,852 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="数据结构的相互转换, MrLi">
+    <meta name="description" content="本文介绍 Map与Array,Object,JSON之间的相互转换
+Map转为ArrayMap转为Array,直接使用es6引入的扩展运算符(…)。
+let myMap = new Map().set(true, 7).set({foo: ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>数据结构的相互转换 | MrLi</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">MrLi</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">MrLi</div>
+        <div class="logo-desc">
+            
+            生活在于分享
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xdlmr" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xdlmr" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        数据结构的相互转换
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Javascript/" target="_blank">
+                    <span class="chip bg-color">Javascript</span>
+                </a>
+                
+                <a href="/tags/ES6/" target="_blank">
+                    <span class="chip bg-color">ES6</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/前端/" class="post-category" target="_blank">
+                        前端
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-01-06
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>本文介绍 Map与Array,Object,JSON之间的相互转换<br><a id="more"></a></p>
+<h2 id="Map转为Array"><a href="#Map转为Array" class="headerlink" title="Map转为Array"></a>Map转为Array</h2><p>Map转为Array,直接使用es6引入的扩展运算符(…)。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token keyword">let</span> myMap <span class="token operator">=</span> new Map<span class="token punctuation">(</span><span class="token punctuation">)</span>.set<span class="token punctuation">(</span>true, 7<span class="token punctuation">)</span>.set<span class="token punctuation">(</span><span class="token punctuation">{</span>foo: 3<span class="token punctuation">}</span>, <span class="token punctuation">[</span><span class="token string">'abc'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>myMap<span class="token punctuation">)</span><span class="token punctuation">;</span>            // Map <span class="token punctuation">{</span>true <span class="token operator">=</span><span class="token operator">></span> 7, Object <span class="token punctuation">{</span>foo: 3<span class="token punctuation">}</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">'abc'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+console.log<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">..</span>.myMap<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    // <span class="token punctuation">[</span> <span class="token punctuation">[</span> true, 7 <span class="token punctuation">]</span>, <span class="token punctuation">[</span> <span class="token punctuation">{</span> foo: 3 <span class="token punctuation">}</span>, <span class="token punctuation">[</span> <span class="token string">'abc'</span> <span class="token punctuation">]</span> <span class="token punctuation">]</span> <span class="token punctuation">]</span>
+</code></pre>
+<h2 id="Array转为Map"><a href="#Array转为Map" class="headerlink" title="Array转为Map"></a>Array转为Map</h2><p>将Array转入Map构造函数，就可以转为Map。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token keyword">let</span> myMap <span class="token operator">=</span> new Map<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>true, 7<span class="token punctuation">]</span>, <span class="token punctuation">[</span><span class="token punctuation">{</span>foo: 3<span class="token punctuation">}</span>, <span class="token punctuation">[</span><span class="token string">'abc'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+console.log<span class="token punctuation">(</span>myMap<span class="token punctuation">)</span><span class="token punctuation">;</span>            // Map <span class="token punctuation">{</span>true <span class="token operator">=</span><span class="token operator">></span> 7, Object <span class="token punctuation">{</span>foo: 3<span class="token punctuation">}</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">'abc'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+</code></pre>
+<h2 id="Map转为Object"><a href="#Map转为Object" class="headerlink" title="Map转为Object"></a>Map转为Object</h2><p>如果所有Map的键都是字符串，它可以转为Object。</p>
+<pre class=" language-bash"><code class="language-bash">方法:
+<span class="token keyword">function</span> strMapToObj<span class="token punctuation">(</span>strMap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> obj <span class="token operator">=</span> Object.create<span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>let <span class="token punctuation">[</span>k,v<span class="token punctuation">]</span> of strMap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        obj<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">v</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> obj<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+使用:
+<span class="token keyword">let</span> myMap <span class="token operator">=</span> new Map<span class="token punctuation">(</span><span class="token punctuation">)</span>.set<span class="token punctuation">(</span><span class="token string">'yes'</span>, true<span class="token punctuation">)</span>.set<span class="token punctuation">(</span><span class="token string">'no'</span>, false<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>myMap<span class="token punctuation">)</span><span class="token punctuation">;</span>                // Map <span class="token punctuation">{</span><span class="token string">"yes"</span> <span class="token operator">=</span><span class="token operator">></span> true, <span class="token string">"no"</span> <span class="token operator">=</span><span class="token operator">></span> false<span class="token punctuation">}</span>
+<span class="token keyword">let</span> obj <span class="token operator">=</span> strMapToObj<span class="token punctuation">(</span>myMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>                // Object <span class="token punctuation">{</span>yes: true, no: false<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="Object转为Map"><a href="#Object转为Map" class="headerlink" title="Object转为Map"></a>Object转为Map</h2><pre class=" language-bash"><code class="language-bash"><span class="token keyword">function</span> objToStrMap<span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> strMap <span class="token operator">=</span> new Map<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>let k of Object.keys<span class="token punctuation">(</span>obj<span class="token punctuation">))</span> <span class="token punctuation">{</span>
+        strMap.set<span class="token punctuation">(</span>k, obj<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> strMap<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>yes: true, no: false<span class="token punctuation">}</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>                // Object <span class="token punctuation">{</span>yes: true, no: false<span class="token punctuation">}</span>
+<span class="token keyword">let</span> myMap <span class="token operator">=</span> objToStrMap<span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>myMap<span class="token punctuation">)</span><span class="token punctuation">;</span>                // Map <span class="token punctuation">{</span><span class="token string">"yes"</span> <span class="token operator">=</span><span class="token operator">></span> true, <span class="token string">"no"</span> <span class="token operator">=</span><span class="token operator">></span> false<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="Map转为JSON"><a href="#Map转为JSON" class="headerlink" title="Map转为JSON"></a>Map转为JSON</h2><p>Map转为JSON要区分两种情况。一种情况是，Map的键名都是字符串，这时可以选择转为对象JSON.</p>
+<p>另一种情况是，Map的键名有非字符串，这时可以选择转为数组JSON。</p>
+<h3 id="Map转为对象JSON"><a href="#Map转为对象JSON" class="headerlink" title="Map转为对象JSON"></a>Map转为对象JSON</h3><pre class=" language-bash"><code class="language-bash"><span class="token keyword">function</span> strMapToJson<span class="token punctuation">(</span>strMap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> obj <span class="token operator">=</span> Object.create<span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>let <span class="token punctuation">[</span>k,v<span class="token punctuation">]</span> of strMap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        obj<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">v</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> JSON.stringify<span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> myMap <span class="token operator">=</span> new Map<span class="token punctuation">(</span><span class="token punctuation">)</span>.set<span class="token punctuation">(</span><span class="token string">'yes'</span>, true<span class="token punctuation">)</span>.set<span class="token punctuation">(</span><span class="token string">'no'</span>, false<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>myMap<span class="token punctuation">)</span><span class="token punctuation">;</span>                    // Map <span class="token punctuation">{</span><span class="token string">"yes"</span> <span class="token operator">=</span><span class="token operator">></span> true, <span class="token string">"no"</span> <span class="token operator">=</span><span class="token operator">></span> false<span class="token punctuation">}</span>
+<span class="token keyword">let</span> objJson <span class="token operator">=</span> strMapToJson<span class="token punctuation">(</span>myMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>objJson<span class="token punctuation">)</span><span class="token punctuation">;</span>                // <span class="token punctuation">{</span><span class="token string">"yes"</span>:true,<span class="token string">"no"</span>:false<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="Map转为数组JSON"><a href="#Map转为数组JSON" class="headerlink" title="Map转为数组JSON"></a>Map转为数组JSON</h3><pre class=" language-bash"><code class="language-bash"><span class="token keyword">function</span> mapToArrayJson<span class="token punctuation">(</span>map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> JSON.stringify<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">..</span>.map<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> myMap <span class="token operator">=</span> new Map<span class="token punctuation">(</span><span class="token punctuation">)</span>.set<span class="token punctuation">(</span>true, 7<span class="token punctuation">)</span>.set<span class="token punctuation">(</span><span class="token punctuation">{</span>foo: 3<span class="token punctuation">}</span>, <span class="token punctuation">[</span><span class="token string">'abc'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>myMap<span class="token punctuation">)</span><span class="token punctuation">;</span>                    // Map <span class="token punctuation">{</span>true <span class="token operator">=</span><span class="token operator">></span> 7, Object <span class="token punctuation">{</span>foo: 3<span class="token punctuation">}</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">"abc"</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+<span class="token keyword">let</span> arrJson <span class="token operator">=</span> mapToArrayJson<span class="token punctuation">(</span>myMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>arrJson<span class="token punctuation">)</span><span class="token punctuation">;</span>                // <span class="token punctuation">[</span><span class="token punctuation">[</span>true,7<span class="token punctuation">]</span>,<span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"foo"</span>:3<span class="token punctuation">}</span>,<span class="token punctuation">[</span><span class="token string">"abc"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+</code></pre>
+<h2 id="JSON转为Map"><a href="#JSON转为Map" class="headerlink" title="JSON转为Map"></a>JSON转为Map</h2><p>JSON转为Map，正常情况下，所有键名都是字符串。</p>
+<p>但是，有一种特殊情况，整个JSON就是一个数组，且每个数组成员本身，又是一个有两个成员的数组。这时，它可以一一对应地转为Map。这往往是数组转为JSON的逆操作。</p>
+<h3 id="JSON键名是字符串"><a href="#JSON键名是字符串" class="headerlink" title="JSON键名是字符串"></a>JSON键名是字符串</h3><pre class=" language-bash"><code class="language-bash"><span class="token keyword">function</span> jsonToStrMap<span class="token punctuation">(</span>jsonStr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> obj <span class="token operator">=</span> JSON.parse<span class="token punctuation">(</span>jsonStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> strMap <span class="token operator">=</span> new Map<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>let k of Object.keys<span class="token punctuation">(</span>obj<span class="token punctuation">))</span> <span class="token punctuation">{</span>
+        strMap.set<span class="token punctuation">(</span>k, obj<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> strMap<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> strJson <span class="token operator">=</span> <span class="token string">'{"yes":true,"no":false}'</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>strJson<span class="token punctuation">)</span><span class="token punctuation">;</span>                // <span class="token punctuation">{</span><span class="token string">"yes"</span>:true,<span class="token string">"no"</span>:false<span class="token punctuation">}</span>
+<span class="token keyword">let</span> myMap <span class="token operator">=</span> jsonToStrMap<span class="token punctuation">(</span>strJson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>myMap<span class="token punctuation">)</span><span class="token punctuation">;</span>                    // Map <span class="token punctuation">{</span><span class="token string">"yes"</span> <span class="token operator">=</span><span class="token operator">></span> true, <span class="token string">"no"</span> <span class="token operator">=</span><span class="token operator">></span> false<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="JSON数组"><a href="#JSON数组" class="headerlink" title="JSON数组"></a>JSON数组</h3><pre class=" language-bash"><code class="language-bash"><span class="token keyword">function</span> jsonToMap<span class="token punctuation">(</span>jsonStr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> new Map<span class="token punctuation">(</span>JSON.parse<span class="token punctuation">(</span>jsonStr<span class="token punctuation">))</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> arrJson <span class="token operator">=</span> <span class="token string">'[[true,7],[{"foo":3},["abc"]]]'</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>arrJson<span class="token punctuation">)</span><span class="token punctuation">;</span>            // <span class="token punctuation">[</span><span class="token punctuation">[</span>true,7<span class="token punctuation">]</span>,<span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"foo"</span>:3<span class="token punctuation">}</span>,<span class="token punctuation">[</span><span class="token string">"abc"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> myMap <span class="token operator">=</span> jsonToMap<span class="token punctuation">(</span>arrJson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>myMap<span class="token punctuation">)</span><span class="token punctuation">;</span>                // Map <span class="token punctuation">{</span>true <span class="token operator">=</span><span class="token operator">></span> 7, Object <span class="token punctuation">{</span>foo: 3<span class="token punctuation">}</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">"abc"</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+</code></pre>
+<p>本文完！</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://xdlmr.github.io" class="b-link-green">MrLi</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/01/06/javascript-shu-ju-jie-gou-xiang-hu-zhuan-huan/" class="b-link-green">数据结构的相互转换</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/2018/03/24/css-dan-xing-bu-ju-flex-bu-ju/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="css弹性布局-flex布局">
+                        
+                        <span class="card-title">css弹性布局-flex布局</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">本文介绍CSS3新增的布局方式，flex弹性布局，便于页面布局及项目。
+传统的css布局我们知道传统的css定位比较麻烦，比如垂直居中，比较难实现，但是问题比较多,很难实现自适应。
+居中
+
+代码：
+// html代码
+&lt;div cla</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS3/" target="_blank">
+                        <span class="chip bg-color">CSS3</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2017/12/18/sass-ji-ben-yong-fa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="SASS用法">
+                        
+                        <span class="card-title">SASS用法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">SASS起源CSS不是一种编程语言，写起来比较麻烦，而且如果要修改整体颜色风格的话，比较费事，需要改很多地方，还要一个一个地找。所以如果将一些公共元素定义为函数中的变量，就可以只修改一处，多处共同更新了。这就是”CSS预处理器”的初步提现。</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-12-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                    CSS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS/" target="_blank">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                    <a href="/tags/SASS/" target="_blank">
+                        <span class="chip bg-color">SASS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">目录</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://xdlmr.github.io/" target="_blank">Mrli</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

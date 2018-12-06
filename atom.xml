@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>MrLi</title>
+  
+  <subtitle>MrLi</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://xdlmr.github.io/"/>
+  <updated>2018-12-06T02:18:30.166Z</updated>
+  <id>https://xdlmr.github.io/</id>
+  
+  <author>
+    <name>MrLi</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux常用命令</title>
+    <link href="https://xdlmr.github.io/2018/08/01/linux-chang-yong-ming-ling/"/>
+    <id>https://xdlmr.github.io/2018/08/01/linux-chang-yong-ming-ling/</id>
+    <published>2018-08-01T06:53:19.000Z</published>
+    <updated>2018-12-06T02:18:30.166Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要介绍Linux常用的一些基本命令。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;查看系统版本：&lt;pre&gt;&lt;code&gt;cat /etc/redhat-release 或 cat /etc/issue
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;删除文件： &lt;pre&gt;&lt;code&gt;rm -f /var/log/httpd/access.log
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://xdlmr.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://xdlmr.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css弹性布局-flex布局</title>
+    <link href="https://xdlmr.github.io/2018/03/24/css-dan-xing-bu-ju-flex-bu-ju/"/>
+    <id>https://xdlmr.github.io/2018/03/24/css-dan-xing-bu-ju-flex-bu-ju/</id>
+    <published>2018-03-24T02:51:50.000Z</published>
+    <updated>2018-12-05T10:38:28.592Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍CSS3新增的布局方式，flex弹性布局，便于页面布局及项目。&lt;/p&gt;
+&lt;h2 id=&quot;传统的css布局&quot;&gt;&lt;a href=&quot;#传统的css布局&quot; class=&quot;headerlink&quot; title=&quot;传统的css布局&quot;&gt;&lt;/a&gt;传统的css布局&lt;/h2&gt;&lt;p&gt;我们知道传统的css定位比较麻烦，比如垂直居中，比较难实现，但是问题比较多,很难实现自适应。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="https://xdlmr.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="CSS3" scheme="https://xdlmr.github.io/tags/CSS3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据结构的相互转换</title>
+    <link href="https://xdlmr.github.io/2018/01/06/javascript-shu-ju-jie-gou-xiang-hu-zhuan-huan/"/>
+    <id>https://xdlmr.github.io/2018/01/06/javascript-shu-ju-jie-gou-xiang-hu-zhuan-huan/</id>
+    <published>2018-01-06T02:30:43.000Z</published>
+    <updated>2018-12-06T02:24:00.344Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍 Map与Array,Object,JSON之间的相互转换&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="https://xdlmr.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Javascript" scheme="https://xdlmr.github.io/tags/Javascript/"/>
+    
+      <category term="ES6" scheme="https://xdlmr.github.io/tags/ES6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SASS用法</title>
+    <link href="https://xdlmr.github.io/2017/12/18/sass-ji-ben-yong-fa/"/>
+    <id>https://xdlmr.github.io/2017/12/18/sass-ji-ben-yong-fa/</id>
+    <published>2017-12-18T09:50:09.000Z</published>
+    <updated>2018-12-06T02:21:18.828Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;SASS起源&quot;&gt;&lt;a href=&quot;#SASS起源&quot; class=&quot;headerlink&quot; title=&quot;SASS起源&quot;&gt;&lt;/a&gt;SASS起源&lt;/h2&gt;&lt;p&gt;CSS不是一种编程语言，写起来比较麻烦，而且如果要修改整体颜色风格的话，比较费事，需要改很多地方，还要一个一个地找。所以如果将一些公共元素定义为函数中的变量，就可以只修改一处，多处共同更新了。这就是”CSS预处理器”的初步提现。&lt;/p&gt;
+&lt;p&gt;CSS预处理器：CSS 预处理器用一种专门的编程语言，进行 Web 页面样式设计，然后再编译成正常的 CSS 文件，以供项目使用。CSS 预处理器为 CSS 增加一些编程的特性，无需考虑浏览器的兼容性问题。其基本思想是，用一种专门的编程语言，为 CSS 增加了一些编程的特性，将 CSS 作为目标生成文件，然后开发者就只要使用这种语言进行编码工作。&lt;/p&gt;
+&lt;p&gt;常用的”CSS预处理器”有：&lt;a href=&quot;http://sass-lang.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SASS&lt;/a&gt; , &lt;a href=&quot;http://lesscss.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;LESS&lt;/a&gt; , &lt;a href=&quot;http://www.zhangxinxu.com/jq/stylus/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Stylus&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="CSS" scheme="https://xdlmr.github.io/categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="https://xdlmr.github.io/tags/CSS/"/>
+    
+      <category term="SASS" scheme="https://xdlmr.github.io/tags/SASS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js容易混淆的几个函数</title>
+    <link href="https://xdlmr.github.io/2017/08/27/javascript-rong-yi-hun-yao-de-ji-ge-han-shu/"/>
+    <id>https://xdlmr.github.io/2017/08/27/javascript-rong-yi-hun-yao-de-ji-ge-han-shu/</id>
+    <published>2017-08-27T13:35:11.000Z</published>
+    <updated>2018-12-05T10:33:37.746Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天我来为大家介绍一下Javascript中比较容易混淆的几个函数。&lt;/p&gt;
+&lt;h2 id=&quot;call和apply&quot;&gt;&lt;a href=&quot;#call和apply&quot; class=&quot;headerlink&quot; title=&quot;call和apply&quot;&gt;&lt;/a&gt;call和apply&lt;/h2&gt;&lt;p&gt;在Javascript中，call和apply都是用另一个对象替换当前对象的方法。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="https://xdlmr.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Javascript" scheme="https://xdlmr.github.io/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常见前端知识点</title>
+    <link href="https://xdlmr.github.io/2017/08/08/qian-duan-chang-jian-zhi-shi-dian/"/>
+    <id>https://xdlmr.github.io/2017/08/08/qian-duan-chang-jian-zhi-shi-dian/</id>
+    <published>2017-08-08T02:57:32.000Z</published>
+    <updated>2018-12-05T10:36:36.572Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文讲述了部分前端面试经常遇到的问题。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="https://xdlmr.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>javascript闭包</title>
+    <link href="https://xdlmr.github.io/2017/08/05/javascript-bi-bao/"/>
+    <id>https://xdlmr.github.io/2017/08/05/javascript-bi-bao/</id>
+    <published>2017-08-05T10:13:11.000Z</published>
+    <updated>2018-12-05T10:28:20.434Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文讲述Javascript的闭包。&lt;/p&gt;
+&lt;h2 id=&quot;引言-简单了解js闭包&quot;&gt;&lt;a href=&quot;#引言-简单了解js闭包&quot; class=&quot;headerlink&quot; title=&quot;引言(简单了解js闭包)&quot;&gt;&lt;/a&gt;引言(简单了解js闭包)&lt;/h2&gt;&lt;p&gt;在讲述js闭包之前，我们先来说一个简单的例子:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var a = 1;
+function fn(){
+    var b = 2;
+    console.log(&amp;quot;a: &amp;quot; + a + &amp;quot;, b: &amp;quot; + b);
+}
+fn();    //a: 1, b: 2
+console.log(&amp;quot;a: &amp;quot; + a + &amp;quot;, b: &amp;quot; + b);    //a: 1, b: undefined
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个相信大家都可以理解，就是变量的作用域，a为定义的全局变量，b为函数fn内部定义的变量,在函数内部，可以获取到全局变量a的值和函数局部变量b的值。在函数外部，不能获取到局部变量b的值。但是，如果我确实想得到函数fn内部的b元素的值呢？&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="https://xdlmr.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="js" scheme="https://xdlmr.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>kettle_errot_karafLifecycleListenter</title>
+    <link href="https://xdlmr.github.io/2017/07/12/kettle-errot-karaflifecyclelistenter/"/>
+    <id>https://xdlmr.github.io/2017/07/12/kettle-errot-karaflifecyclelistenter/</id>
+    <published>2017-07-12T08:55:42.000Z</published>
+    <updated>2017-07-12T09:05:51.830Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用kettle 6.1 通过命令行批量执行作业的过程中，发现偶尔有作业执行时间会变慢几分钟，查看日志发现改作业开始就报了一个错&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/imgs/kettle_error.png&quot; alt=&quot;&amp;quot;kettle_error&amp;quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="https://xdlmr.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="kettle" scheme="https://xdlmr.github.io/tags/kettle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>30分钟学习shell脚本</title>
+    <link href="https://xdlmr.github.io/2017/06/07/learn-shell/"/>
+    <id>https://xdlmr.github.io/2017/06/07/learn-shell/</id>
+    <published>2017-06-07T07:35:40.000Z</published>
+    <updated>2017-07-12T09:06:29.761Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;开始&quot;&gt;&lt;a href=&quot;#开始&quot; class=&quot;headerlink&quot; title=&quot;开始&quot;&gt;&lt;/a&gt;开始&lt;/h1&gt;&lt;p&gt;Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。Shell需要依赖其他程序才能完成大部分的工作，这或许是它的缺陷，但它不容置疑的长处是：简洁的脚本语言标记方式，而且比C语言编写的程序执行更快、更有效率。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://xdlmr.github.io/categories/Linux/"/>
+    
+    
+      <category term="shell" scheme="https://xdlmr.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>原生js操作DOM元素</title>
+    <link href="https://xdlmr.github.io/2017/06/05/yuan-sheng-js-cao-zuo-dom-yuan-su/"/>
+    <id>https://xdlmr.github.io/2017/06/05/yuan-sheng-js-cao-zuo-dom-yuan-su/</id>
+    <published>2017-06-05T13:39:09.000Z</published>
+    <updated>2018-12-05T10:33:51.700Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要讲述一些原生的js来操作DOM元素的方法。&lt;/p&gt;
+&lt;p&gt;目前市场上的一些js库很多：jQuery、Angular、prototype、lodash、react、vue等方便了我们应用。但有时候如果开发一些自己的js库，还是要用到原生js。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端开发" scheme="https://xdlmr.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Javascript" scheme="https://xdlmr.github.io/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>http协议</title>
+    <link href="https://xdlmr.github.io/2017/05/22/http-xie-yi/"/>
+    <id>https://xdlmr.github.io/2017/05/22/http-xie-yi/</id>
+    <published>2017-05-22T08:34:15.000Z</published>
+    <updated>2017-05-22T09:02:11.389Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。。&lt;br&gt;HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="网站建设" scheme="https://xdlmr.github.io/categories/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/"/>
+    
+    
+      <category term="Http" scheme="https://xdlmr.github.io/tags/Http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos安装pgsql</title>
+    <link href="https://xdlmr.github.io/2017/05/15/centos-an-zhuang-pgs/"/>
+    <id>https://xdlmr.github.io/2017/05/15/centos-an-zhuang-pgs/</id>
+    <published>2017-05-15T15:00:07.000Z</published>
+    <updated>2017-05-15T16:10:25.716Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;安装PostgreSQL源&quot;&gt;&lt;a href=&quot;#安装PostgreSQL源&quot; class=&quot;headerlink&quot; title=&quot;安装PostgreSQL源&quot;&gt;&lt;/a&gt;安装PostgreSQL源&lt;/h1&gt;&lt;p&gt;CentOS 6.x 32bit&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-6-i386/pgdg-centos94-9.4-1.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;CentOS 6.x 64bit&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-centos94-9.4-1.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;CentOS 7 64bit&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在添加源的步骤中并没有太多的区别，主要是源的地址有一定的变化。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://xdlmr.github.io/categories/Linux/"/>
+    
+    
+      <category term="pgsql" scheme="https://xdlmr.github.io/tags/pgsql/"/>
+    
+      <category term="centos" scheme="https://xdlmr.github.io/tags/centos/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux的iptables开发mysql端口</title>
+    <link href="https://xdlmr.github.io/2017/05/15/linux-de-iptables-kai-fa-mysql-duan-kou/"/>
+    <id>https://xdlmr.github.io/2017/05/15/linux-de-iptables-kai-fa-mysql-duan-kou/</id>
+    <published>2017-05-15T14:50:18.000Z</published>
+    <updated>2017-05-15T14:52:16.440Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;修改防火墙配置文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vi /etc/sysconfig/iptables
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;增加下面一行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-A RH-Firewall-1-INPUT -m state --state NEW
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://xdlmr.github.io/categories/Linux/"/>
+    
+    
+      <category term="mysql" scheme="https://xdlmr.github.io/tags/mysql/"/>
+    
+      <category term="linux" scheme="https://xdlmr.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>谷歌HTML/CSS规范</title>
+    <link href="https://xdlmr.github.io/2017/04/24/gu-ge-html-css-gui-fan/"/>
+    <id>https://xdlmr.github.io/2017/04/24/gu-ge-html-css-gui-fan/</id>
+    <published>2017-04-24T01:52:16.000Z</published>
+    <updated>2018-12-06T02:26:45.420Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文链接：&lt;a href=&quot;https://google.github.io/styleguide/htmlcssguide.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://google.github.io/styleguide/htmlcssguide.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;这篇文章定义了 HTML 和 CSS 的格式和代码规范，旨在提高代码质量和协作效率。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端开发" scheme="https://xdlmr.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="HTML" scheme="https://xdlmr.github.io/tags/HTML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue生命周期--created和mounted的区别</title>
+    <link href="https://xdlmr.github.io/2017/04/20/vue-sheng-ming-zhou-qi-created-he-mounted-de-qu-bie/"/>
+    <id>https://xdlmr.github.io/2017/04/20/vue-sheng-ming-zhou-qi-created-he-mounted-de-qu-bie/</id>
+    <published>2017-04-20T03:46:09.000Z</published>
+    <updated>2017-04-20T03:58:00.905Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;每个 Vue 实例在被创建之前都要经过一系列的初始化过程。例如，实例需要配置数据观测(data observer)、编译模版、挂载实例到 DOM ，然后在数据变化时更新 DOM 。在这个过程中，实例也会调用一些 生命周期钩子 ，这就给我们提供了执行自定义逻辑的机会。例如，created 这个钩子在实例被创建之后被调用：&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="https://xdlmr.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="vue" scheme="https://xdlmr.github.io/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nodejs http的get,post请求</title>
+    <link href="https://xdlmr.github.io/2017/04/15/nodejs-de-http-qing-qiu-get-and-post/"/>
+    <id>https://xdlmr.github.io/2017/04/15/nodejs-de-http-qing-qiu-get-and-post/</id>
+    <published>2017-04-15T01:30:23.000Z</published>
+    <updated>2017-04-27T02:46:00.684Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;对于http的get，post请求的区别，我的理解有下面两点：&quot;&gt;&lt;a href=&quot;#对于http的get，post请求的区别，我的理解有下面两点：&quot; class=&quot;headerlink&quot; title=&quot;对于http的get，post请求的区别，我的理解有下面两点：&quot;&gt;&lt;/a&gt;对于http的get，post请求的区别，我的理解有下面两点：&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;1:get是向服务器索取数据的一种请求，而post是像服务器提交的一种请求。&lt;br&gt;2:post更加安全些，适合于登录，获取验证码等等。&lt;br&gt;3:post请求是将请求参数以form表单的形式post出去，而get请求参数直接加在path后面  例子 path=”callme/index.cfm/userService/command/search?”+”lat=123&amp;amp;lon=123&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="后端" scheme="https://xdlmr.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="node" scheme="https://xdlmr.github.io/tags/node/"/>
+    
+      <category term="http" scheme="https://xdlmr.github.io/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在vue中安装sass</title>
+    <link href="https://xdlmr.github.io/2017/04/08/sass-in-vue/"/>
+    <id>https://xdlmr.github.io/2017/04/08/sass-in-vue/</id>
+    <published>2017-04-08T02:30:23.000Z</published>
+    <updated>2017-04-20T04:06:28.394Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1，使用save会在package.json中自动添加。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm install node-sass  –save&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm install sass-loader  –save&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;或者使用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm install sass-loader node-sass vue-style-loader –D &lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="https://xdlmr.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Vue" scheme="https://xdlmr.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Echarts3使用笔记(2)——标准柱状图使用实例</title>
+    <link href="https://xdlmr.github.io/2017/03/27/echarts3-bar-standard/"/>
+    <id>https://xdlmr.github.io/2017/03/27/echarts3-bar-standard/</id>
+    <published>2017-03-27T08:31:13.000Z</published>
+    <updated>2017-03-27T09:05:30.966Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要是标准柱状图的使用方法以及一些常用配置的说明&lt;br&gt;
+    
+    </summary>
+    
+      <category term="数据可视化" scheme="https://xdlmr.github.io/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+    
+      <category term="Echarts" scheme="https://xdlmr.github.io/tags/Echarts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Echarts3使用笔记(1)——五分钟上手Echarts3</title>
+    <link href="https://xdlmr.github.io/2017/03/27/echarts3-five-minutes-learning/"/>
+    <id>https://xdlmr.github.io/2017/03/27/echarts3-five-minutes-learning/</id>
+    <published>2017-03-27T07:54:45.000Z</published>
+    <updated>2017-03-27T08:27:59.590Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;ECharts，缩写来自Enterprise Charts，商业级数据图表，是百度的一个开源的数据可视化工具，业界给予了很多赞誉。&lt;br&gt;之前做项目一直用的是echarts2做的，后来同事说Echarts3使用起来更方便，去官网一看，大部分配置和echarts2还是一样，只是用echarts3不在需要引入其他文件，不用其他的路径配置，直接引用一份echarts文件即可。而且echarts的界面更加友好，用户体验比以前更加完美。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="数据可视化" scheme="https://xdlmr.github.io/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+    
+      <category term="Echarts" scheme="https://xdlmr.github.io/tags/Echarts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>80% 应聘者都不及格的 JS 面试题</title>
+    <link href="https://xdlmr.github.io/2017/03/23/js-interview-question1/"/>
+    <id>https://xdlmr.github.io/2017/03/23/js-interview-question1/</id>
+    <published>2017-03-23T08:59:12.000Z</published>
+    <updated>2017-03-23T09:35:47.574Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;共 5024 字，读完需 6 分钟，速读需 2 分钟，本文首发于知乎专栏&lt;a href=&quot;https://zhuanlan.zhihu.com/feweekly&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;前端周刊&lt;/a&gt;。写在前面，笔者在做面试官这 2 年多的时间内，面试了数百个前端工程师，惊讶的发现，超过 80% 的候选人对下面这道题的回答情况连及格都达不到。这究竟是怎样神奇的一道面试题？他考察了候选人的哪些能力？对正在读本文的你有什么启示？且听我慢慢道来。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="https://xdlmr.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="js" scheme="https://xdlmr.github.io/tags/js/"/>
+    
+      <category term="笔试面试" scheme="https://xdlmr.github.io/tags/%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+</feed>

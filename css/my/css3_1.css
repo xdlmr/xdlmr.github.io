@@ -1,0 +1,65 @@
+.trans_div{
+	width: 100px;
+	height: 100px;
+	background: #ff0000;
+	color: #ffffff;
+	transition: width 2s , background 2s;
+	-webkit-transition: width 2s , background 2s;
+	-ms-transition: width 2s , background 2s;
+	-moz-transition: width 2s , background 2s;
+}
+.trans_div:hover{
+	width: 300px;
+	background: #0000ff;
+}
+.transform_div{
+	width: 100px;
+	height: 100px;
+	background: #00ff00;
+	transform: rotate3d(1,2,3,30deg);
+}
+.shadow_div{
+	width: 100px;
+	height: 100px;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	box-shadow: 10px 10px 5px #888888;
+}
+.animation_div{
+	position: relative;
+	width: 100px;
+	height: 100px;
+	background: #ffff00;
+	animation: myanimate 4s infinite;
+}
+
+@keyframes myanimate{
+	0% {
+		background: #ffff00;
+		left: 0px;
+		transform: rotate(0deg);
+	}
+	25% {
+		background: #00ff00;
+		left: 150px;
+		transform: rotate(90deg);
+	}
+	50% {
+		background: #00ffff;
+		left: 300px;
+		transform: rotate(180deg);
+	}
+	75% {
+		background: #00ff00;
+		left: 150px;
+		transform: rotate(270deg);
+	}
+	100% {
+		background: #ffff00;
+		left: 0px;
+		transform: rotate(360deg);
+	}
+}
+
+
+

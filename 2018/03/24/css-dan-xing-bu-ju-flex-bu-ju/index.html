@@ -1,0 +1,1733 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="css弹性布局-flex布局, MrLi">
+    <meta name="description" content="本文介绍CSS3新增的布局方式，flex弹性布局，便于页面布局及项目。
+传统的css布局我们知道传统的css定位比较麻烦，比如垂直居中，比较难实现，但是问题比较多,很难实现自适应。
+居中
+
+代码：
+// html代码
+&amp;lt;div cla">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>css弹性布局-flex布局 | MrLi</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">MrLi</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">MrLi</div>
+        <div class="logo-desc">
+            
+            生活在于分享
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xdlmr" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xdlmr" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        css弹性布局-flex布局
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/CSS3/" target="_blank">
+                    <span class="chip bg-color">CSS3</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/前端/" class="post-category" target="_blank">
+                        前端
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-03-24
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>本文介绍CSS3新增的布局方式，flex弹性布局，便于页面布局及项目。</p>
+<h2 id="传统的css布局"><a href="#传统的css布局" class="headerlink" title="传统的css布局"></a>传统的css布局</h2><p>我们知道传统的css定位比较麻烦，比如垂直居中，比较难实现，但是问题比较多,很难实现自适应。<br><a id="more"></a></p>
+<div class="oldcenter"><div class="oldcenter-div">居中</div></div>
+
+<p>代码：</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"oldcenter"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"oldcenter-div"</span><span class="token operator">></span>居中<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.oldcenter<span class="token punctuation">{</span>
+    border: 1px solid <span class="token comment" spellcheck="true">#D53419;</span>
+    background-color: <span class="token comment" spellcheck="true">#50E9EE;</span>
+    width: 250px<span class="token punctuation">;</span>
+    height: 250px<span class="token punctuation">;</span>
+    position: relative<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+.oldcenter-div <span class="token punctuation">{</span>
+    width: 50px<span class="token punctuation">;</span>
+    height: 50px<span class="token punctuation">;</span>
+    background-color: <span class="token comment" spellcheck="true">#DF6A41;</span>
+    margin: 0 auto<span class="token punctuation">;</span>            //左右居中
+    margin-top: 50%<span class="token punctuation">;</span>        //外边框距离父元素高度顶部框线50%
+    bottom: 25px<span class="token punctuation">;</span>            //上移自身高度的一半 50/2 <span class="token operator">=</span> 25px
+    position: relative<span class="token punctuation">;</span>        //设置为相对父元素定位
+<span class="token punctuation">}</span>
+</code></pre>
+<p>上面的代码可以实现居中，原理是先让子div向下移动其父元素50%的高度，再向上移动自身高度50px的一半,即25px;实现了垂直居中。代码非常冗余。</p>
+<p>而且，如果是动态添加的列表元素，居中更麻烦</p>
+<div class="oldcenter"><ul class="old-ul"><li>列表1</li><li>列表2</li><li>列表3</li><li>列表4</li><li>列表5</li></ul></div>
+
+<p>代码：</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"oldcenter"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>ul class<span class="token operator">=</span><span class="token string">"old-ul"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>li<span class="token operator">></span>列表1<span class="token operator">&lt;</span>/li<span class="token operator">></span>
+        <span class="token operator">&lt;</span>li<span class="token operator">></span>列表2<span class="token operator">&lt;</span>/li<span class="token operator">></span>
+        <span class="token operator">&lt;</span>li<span class="token operator">></span>列表3<span class="token operator">&lt;</span>/li<span class="token operator">></span>
+        <span class="token operator">&lt;</span>li<span class="token operator">></span>列表4<span class="token operator">&lt;</span>/li<span class="token operator">></span>
+        <span class="token operator">&lt;</span>li<span class="token operator">></span>列表5<span class="token operator">&lt;</span>/li<span class="token operator">></span>
+    <span class="token operator">&lt;</span>/ul<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.oldcenter<span class="token punctuation">{</span>
+    border: 1px solid <span class="token comment" spellcheck="true">#D53419;</span>
+    background-color: <span class="token comment" spellcheck="true">#50E9EE;</span>
+    width: 250px<span class="token punctuation">;</span>
+    height: 250px<span class="token punctuation">;</span>
+    position: relative<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+.old-ul<span class="token punctuation">{</span>
+    margin-top: 0px<span class="token punctuation">;</span>
+    height: 250px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+.old-ul<span class="token operator">></span>li<span class="token punctuation">{</span>
+    height: 50px<span class="token punctuation">;</span>
+    line-height: 50px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>这个列表样式看似简单，但是如果列表中的内容是动态添加的呢？我们应该怎样设置每一个列表项的高度和行高？不可能每添加一次就改一次css代码，是不是非常的不方便。</p>
+<p>传统的布局需要依赖于display,position,float等属性，样式调起来很不容易,所以需要改进。</p>
+<h2 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h2><p>2009年，W3C组织提出了一种新的布局方式–弹性布局，即flex布局。这种布局用少量、简单的代码，可以实现页面的响应式布局。并且如今已经得到除IE9-以外的所有浏览器的支持，完全不影响使用。</p>
+<h3 id="初识flex"><a href="#初识flex" class="headerlink" title="初识flex"></a>初识flex</h3><p>我们先来认识一下flex，看看实现传统布局中的垂直居中是否方便。</p>
+<div class="newcenter"><br>    <div class="newcenter-div">flex居中</div><br></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"newcenter"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"newcenter-div"</span><span class="token operator">></span>flex居中<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.newcenter<span class="token punctuation">{</span>
+    width: 250px<span class="token punctuation">;</span>
+    height: 250px<span class="token punctuation">;</span>
+    border: 1px solid <span class="token comment" spellcheck="true">#D53419;</span>
+    background-color: <span class="token comment" spellcheck="true">#50E9EE;</span>
+    display: flex<span class="token punctuation">;</span>            //声明为flex布局
+    justify-content: center<span class="token punctuation">;</span>//水平方向左右居中
+    align-items: center<span class="token punctuation">;</span>    //垂直方向上下居中
+<span class="token punctuation">}</span>
+.newcenter-div<span class="token punctuation">{</span>
+    width: 50px<span class="token punctuation">;</span>
+    height: 50px<span class="token punctuation">;</span>
+    background-color: <span class="token comment" spellcheck="true">#DF6A41;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>是不是觉得简单易懂，而且用起来也比较方便。</p>
+<h3 id="flex基本概念"><a href="#flex基本概念" class="headerlink" title="flex基本概念"></a>flex基本概念</h3><p>将元素的display属性设置为flex后，该元素就成为了”flex容器”,之后的操作类似于在容器中操作，它的子元素都是容器中的部分。</p>
+<h3 id="flex容器属性"><a href="#flex容器属性" class="headerlink" title="flex容器属性"></a>flex容器属性</h3><p>flex容器有6个属性</p>
+<p><strong> 为了减少重复代码，且方便读者看懂，该标题(flex容器属性)下的所有代码的css均基于以下两个class属性 </strong></p>
+<pre class=" language-bash"><code class="language-bash">.parent-container<span class="token punctuation">{</span>
+    width: 400px<span class="token punctuation">;</span>
+    height: 300px<span class="token punctuation">;</span>
+    border: 1px solid <span class="token comment" spellcheck="true">#D53419;</span>
+    background-color: <span class="token comment" spellcheck="true">#50E9EE;</span>
+<span class="token punctuation">}</span>
+.parent-container<span class="token operator">></span>p<span class="token punctuation">{</span>
+    width: 50px<span class="token punctuation">;</span>
+    height: 30px<span class="token punctuation">;</span>
+    border: 1px solid <span class="token comment" spellcheck="true">#2548E7;</span>
+    background-color: <span class="token comment" spellcheck="true">#dbc21d;</span>
+    margin: 5px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h4><p>该属性用来定义，子元素的排列方向.</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>属性值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>row</td>
+<td>水平方向，从左往右依次排列(默认值)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>row-reverse</td>
+<td>水平方向，从右往左依次排列</td>
+</tr>
+<tr>
+<td>3</td>
+<td>column</td>
+<td>垂直方向，从上往下依次排列</td>
+</tr>
+<tr>
+<td>4</td>
+<td>column-reverse</td>
+<td>垂直方向，从下往上依次排列</td>
+</tr>
+</tbody>
+</table>
+<p>1.row</p>
+<div class="parent-container container-row"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p><p>flex5</p><p>flex6</p><p>flex7</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-row"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex5<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex6<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex7<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-row<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-direction: row<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>2.row-reverse</p>
+<div class="parent-container container-rowreverse"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p><p>flex5</p><p>flex6</p><p>flex7</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-rowreverse"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex5<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex6<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex7<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-rowreverse<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-direction: row-reverse<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>3.column</p>
+<div class="parent-container container-column"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p><p>flex5</p><p>flex6</p><p>flex7</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-column"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex5<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex6<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex7<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-column<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-direction: column<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>4.column-reverse</p>
+<div class="parent-container container-columnreverse"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p><p>flex5</p><p>flex6</p><p>flex7</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-columnreverse"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex5<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex6<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex7<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-columnreverse<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-direction: column-reverse<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h4><p>该属性用来定义，如果子元素一排排不下，那么它的换行情况.</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>属性值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>nowrap</td>
+<td>表示不换行(默认值)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>wrap</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>3</td>
+<td>wrap-reverse</td>
+<td>换行，并且反向排列</td>
+</tr>
+</tbody>
+</table>
+<p>1.nowrap</p>
+<div class="parent-container container-nowrap"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p><p>flex5</p><p>flex6</p><p>flex7</p><p>flex8</p><p>flex9</p><p>flex10</p><p>flex11</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-nowrap"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex5<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex6<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex7<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex8<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex9<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex10<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex11<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-nowrap<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-wrap: nowrap<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>2.wrap</p>
+<div class="parent-container container-wrap"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p><p>flex5</p><p>flex6</p><p>flex7</p><p>flex8</p><p>flex9</p><p>flex10</p><p>flex11</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-wrap"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex5<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex6<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex7<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex8<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex9<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex10<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex11<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-wrap<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-wrap: wrap<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>3.wrap-reverse</p>
+<div class="parent-container container-wrapreverse"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p><p>flex5</p><p>flex6</p><p>flex7</p><p>flex8</p><p>flex9</p><p>flex10</p><p>flex11</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-wrapreverse"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex5<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex6<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex7<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex8<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex9<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex10<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex11<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-wrapreverse<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-wrap: wrap-reverse<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h4><p>该属性是flex-direction属性和flex-wrap属性的结合，即flex-direction属性和flex-wrap属性的简写形式,这里就不再说明.</p>
+<pre class=" language-bash"><code class="language-bash">.container<span class="token punctuation">{</span>
+    flex-flow: flex-direction <span class="token operator">||</span> flex-wrap<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h4><p>该属性用来定义，元素在水平方向上的对齐方式.</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>属性值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>flex-start</td>
+<td>靠左对齐(默认值)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>flex-end</td>
+<td>靠右对齐</td>
+</tr>
+<tr>
+<td>3</td>
+<td>center</td>
+<td>水平居中对齐</td>
+</tr>
+<tr>
+<td>4</td>
+<td>space-between</td>
+<td>两端对齐，子元素之间间隔相等，两端无间隔</td>
+</tr>
+<tr>
+<td>5</td>
+<td>space-around</td>
+<td>平均对齐，子元素两侧间隔相等，且不重叠</td>
+</tr>
+</tbody>
+</table>
+<p>1.flex-start</p>
+<div class="parent-container container-justify-flexstart"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-justify-flexstart"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-justify-flexstart<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    justify-content: flex-start<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>2.flex-end</p>
+<div class="parent-container container-justify-flexend"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-justify-flexend"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-justify-flexend<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    justify-content: flex-end<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>3.center</p>
+<div class="parent-container container-justify-center"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-justify-center"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-justify-center<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    justify-content: center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>4.space-between</p>
+<div class="parent-container container-justify-spacebetween"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-justify-spacebetween"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-justify-spacebetween<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    justify-content: space-between<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>5.space-around</p>
+<div class="parent-container container-justify-spacearound"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-justify-spacearound"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-justify-spacearound<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    justify-content: space-around<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h4><p>该属性用来定义，元素在垂直方向上的对齐方式.</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>属性值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>flex-start</td>
+<td>顶部对齐(默认值)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>flex-end</td>
+<td>底部对齐</td>
+</tr>
+<tr>
+<td>3</td>
+<td>center</td>
+<td>垂直居中对齐</td>
+</tr>
+<tr>
+<td>4</td>
+<td>baseline</td>
+<td>子元素第一行文字的基线对齐</td>
+</tr>
+<tr>
+<td>5</td>
+<td>stretch</td>
+<td>占满父元素整个垂直方向的高度,即高度与父元素相同(项目未设置高度或设为auto的情况下生效)(默认值)</td>
+</tr>
+</tbody>
+</table>
+<p>1.flex-start</p>
+<div class="parent-container container-aItems-flexstart"><p style="height: 80px">flex1</p><p style="height: 40px">flex2</p><p style="height: 120px">flex3</p><p style="height: 100px">flex4</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-aItems-flexstart"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 80px"</span><span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 40px"</span><span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 120px"</span><span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 100px"</span><span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-aItems-flexstart<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    align-items: flex-start<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>2.flex-end</p>
+<div class="parent-container container-aItems-flexend"><p style="height: 80px">flex1</p><p style="height: 40px">flex2</p><p style="height: 120px">flex3</p><p style="height: 100px">flex4</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-aItems-flexend"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 80px"</span><span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 40px"</span><span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 120px"</span><span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 100px"</span><span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-aItems-flexend<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    align-items: flex-end<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>3.center</p>
+<div class="parent-container container-aItems-center"><p style="height: 80px">flex1</p><p style="height: 40px">flex2</p><p style="height: 120px">flex3</p><p style="height: 100px">flex4</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-aItems-center"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 80px"</span><span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 40px"</span><span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 120px"</span><span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 100px"</span><span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-aItems-center<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    align-items: center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>4.baseline</p>
+<div class="parent-container container-aItems-baseline"><p style="height: 80px;font-size: 20px">flex1</p><p style="height: 40px;font-size: 14px">flex2</p><p style="height: 120px;font-size: 22px">flex3</p><p style="height: 100px;font-size: 25px">flex4</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-aItems-baseline"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 80px;font-size: 20px"</span><span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 40px;font-size: 14px"</span><span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 120px;font-size: 22px"</span><span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 100px;font-size: 25px"</span><span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-aItems-baseline<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    align-items: baseline<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>5.stretch</p>
+<div class="parent-container container-aItems-stretch"><p style="height: initial;">flex1</p><p style="height: initial;">flex2</p><p style="height: 50px;">flex3</p><p style="height: 150px;">flex4</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-aItems-stretch"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: initial;"</span><span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: initial;"</span><span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 50px;"</span><span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"height: 150px;"</span><span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-aItems-stretch<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    align-items: stretch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p>该属性用来定义，多排子元素在垂直方向上每一排之间的对齐方式.</p>
+<p><strong> 该属性必须在具有多排子元素的父元素中才能生效，即必须有 flex-wrap: wrap; 或 flex-wrap: wrap-reverse;且父元素中有多个子元素，一排放不下的情况下才有效果. </strong></p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>属性值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>flex-start</td>
+<td>垂直方向上，排之间靠近顶部对齐</td>
+</tr>
+<tr>
+<td>2</td>
+<td>flex-end</td>
+<td>垂直方向上，排之间靠近底部对齐</td>
+</tr>
+<tr>
+<td>3</td>
+<td>center</td>
+<td>垂直方向上，排之间居中对齐</td>
+</tr>
+<tr>
+<td>4</td>
+<td>space-between</td>
+<td>垂直方向上，第一排与最后一排上下两端紧靠父元素，排之间的间隔平分</td>
+</tr>
+<tr>
+<td>5</td>
+<td>space-around</td>
+<td>垂直方向上平均对齐，排之间两侧间隔相等，且不重叠</td>
+</tr>
+<tr>
+<td>6</td>
+<td>stretch</td>
+<td>所有排占满父元素整个垂直方向的高度(默认值)</td>
+</tr>
+</tbody>
+</table>
+<p>1.flex-start</p>
+<div class="parent-container container-aContent-flexstart"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p><p>flex5</p><p>flex6</p><p>flex7</p><p>flex8</p><p>flex9</p><p>flex10</p><p>flex11</p><p>flex12</p><p>flex13</p><p>flex14</p><p>flex15</p><p>flex16</p><p>flex17</p><p>flex18</p><p>flex19</p><p>flex20</p><p>flex21</p><p>flex22</p><p>flex23</p><p>flex24</p><p>flex25</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-aContent-flexstart"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    ···            //多个p元素
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex23<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex24<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex25<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-aContent-flexstart<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-wrap: wrap<span class="token punctuation">;</span>
+    align-content: flex-start<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>2.flex-end</p>
+<div class="parent-container container-aContent-flexend"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p><p>flex5</p><p>flex6</p><p>flex7</p><p>flex8</p><p>flex9</p><p>flex10</p><p>flex11</p><p>flex12</p><p>flex13</p><p>flex14</p><p>flex15</p><p>flex16</p><p>flex17</p><p>flex18</p><p>flex19</p><p>flex20</p><p>flex21</p><p>flex22</p><p>flex23</p><p>flex24</p><p>flex25</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-aContent-flexend"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    ···            //多个p元素
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex23<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex24<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex25<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-aContent-flexend<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-wrap: wrap<span class="token punctuation">;</span>
+    align-content: flex-end<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>3.center</p>
+<div class="parent-container container-aContent-center"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p><p>flex5</p><p>flex6</p><p>flex7</p><p>flex8</p><p>flex9</p><p>flex10</p><p>flex11</p><p>flex12</p><p>flex13</p><p>flex14</p><p>flex15</p><p>flex16</p><p>flex17</p><p>flex18</p><p>flex19</p><p>flex20</p><p>flex21</p><p>flex22</p><p>flex23</p><p>flex24</p><p>flex25</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-aContent-center"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    ···            //多个p元素
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex23<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex24<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex25<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-aContent-center<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-wrap: wrap<span class="token punctuation">;</span>
+    align-content: center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>4.space-between</p>
+<div class="parent-container container-aContent-spacebetween"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p><p>flex5</p><p>flex6</p><p>flex7</p><p>flex8</p><p>flex9</p><p>flex10</p><p>flex11</p><p>flex12</p><p>flex13</p><p>flex14</p><p>flex15</p><p>flex16</p><p>flex17</p><p>flex18</p><p>flex19</p><p>flex20</p><p>flex21</p><p>flex22</p><p>flex23</p><p>flex24</p><p>flex25</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-aContent-spacebetween"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    ···            //多个p元素
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex23<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex24<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex25<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-aContent-spacebetween<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-wrap: wrap<span class="token punctuation">;</span>
+    align-content: space-between<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>5.space-around</p>
+<div class="parent-container container-aContent-spacearound"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p><p>flex5</p><p>flex6</p><p>flex7</p><p>flex8</p><p>flex9</p><p>flex10</p><p>flex11</p><p>flex12</p><p>flex13</p><p>flex14</p><p>flex15</p><p>flex16</p><p>flex17</p><p>flex18</p><p>flex19</p><p>flex20</p><p>flex21</p><p>flex22</p><p>flex23</p><p>flex24</p><p>flex25</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-aContent-spacearound"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    ···            //多个p元素
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex23<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex24<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex25<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-aContent-spacearound<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-wrap: wrap<span class="token punctuation">;</span>
+    align-content: space-around<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>6.stretch</p>
+<div class="parent-container container-aContent-stretch"><p>flex1</p><p>flex2</p><p>flex3</p><p>flex4</p><p>flex5</p><p>flex6</p><p>flex7</p><p>flex8</p><p>flex9</p><p>flex10</p><p>flex11</p><p>flex12</p><p>flex13</p><p>flex14</p><p>flex15</p><p>flex16</p><p>flex17</p><p>flex18</p><p>flex19</p><p>flex20</p><p>flex21</p><p>flex22</p><p>flex23</p><p>flex24</p><p>flex25</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"parent-container container-aContent-stretch"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    ···            //多个p元素
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex23<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex24<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>flex25<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.container-aContent-stretch<span class="token punctuation">{</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-wrap: wrap<span class="token punctuation">;</span>
+    align-content: stretch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="flex容器中子元素的属性"><a href="#flex容器中子元素的属性" class="headerlink" title="flex容器中子元素的属性"></a>flex容器中子元素的属性</h3><p><strong> 为了减少重复代码，且方便读者看懂，该标题(flex容器中子元素的属性)下的所有代码的css均基于以下两个class属性 </strong></p>
+<pre class=" language-bash"><code class="language-bash">.child-container<span class="token punctuation">{</span>
+    border: 1px solid <span class="token comment" spellcheck="true">#D53419;</span>
+    background-color: <span class="token comment" spellcheck="true">#50E9EE;</span>
+    width: 350px<span class="token punctuation">;</span>
+    height: 100px<span class="token punctuation">;</span>
+    display: flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+.child-container<span class="token operator">></span>p<span class="token punctuation">{</span>
+    background-color: <span class="token comment" spellcheck="true">#dbc21d;</span>
+    height: 50px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>flex子元素具有6个相关的属性，可以将属性设置在子元素上。</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>属性</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>order</td>
+<td>定义子元素的排列顺序。数值越小，排列越靠前，默认为0。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>flex-grow</td>
+<td>定义子元素的放大比例，如果存在剩余空间，也会等比例放大，默认为0。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>flex-shrink</td>
+<td>定义子元素的缩小比例，如果空间不足，该子元素将缩小，默认为1。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>flex-basis</td>
+<td>定义在分配多余空间之前，子元素占据的水平或垂直空间，默认为auto。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>flex</td>
+<td>是flex-grow, flex-shrink 和 flex-basis的简写，后两个属性可选，默认值为0 1 auto。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>align-self</td>
+<td>允许单个子元素有与其他子元素不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于默认值stretch。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="order"><a href="#order" class="headerlink" title="order"></a>order</h4><p>定义项目的排列顺序。数值越小，排列越靠前。</p>
+<div class="child-container childorder"><p style="order: 36">flex1</p><p style="order: 18">flex2</p><p style="order: 5">flex3</p><p style="order: 9">flex4</p><p style="order: 6">flex5</p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"child-container childorder"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"order: 36"</span><span class="token operator">></span>flex1<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"order: 18"</span><span class="token operator">></span>flex2<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"order: 5"</span><span class="token operator">></span>flex3<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"order: 9"</span><span class="token operator">></span>flex4<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"order: 6"</span><span class="token operator">></span>flex5<span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.childorder<span class="token operator">></span>p<span class="token punctuation">{</span>
+    width:50px<span class="token punctuation">;</span>
+    margin: 5px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h4><p>如果所有子元素的flex-grow属性都为1，则它们将等分一排空间.<br>如果一个子元素的flex-grow属性为2，其他子元素都为1，则前者占据的宽度是其他子元素的2倍。<br><strong> 如果想要flex-grow样式正常执行，则不能给子元素定义宽度width！否则样式会与预想中的不同 </strong></p>
+<div class="child-container"><p style="background-color:#ff7f50;flex-grow: 1;"></p><p style="background-color:#2bafd9;flex-grow: 2;"></p><p style="background-color:#f0e68c;flex-grow: 1;"></p><p style="background-color:#ffc0cb;flex-grow: 3;"></p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"child-container"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"background-color:#ff7f50;flex-grow: 1;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"background-color:#2bafd9;flex-grow: 2;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"background-color:#f0e68c;flex-grow: 1;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"background-color:#ffc0cb;flex-grow: 3;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+</code></pre>
+<h4 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h4><p>如果所有子元素的flex-shrink属性都为1，当空间不足时，所有子元素都将等比例缩小。如果一个子元素的flex-shrink属性为0，其他子元素都为1，则空间不足时，前者不缩小。</p>
+<div class="child-container child-flexshrink"><p style="flex-shrink: 1;"></p><p style="flex-shrink: 0;"></p><p style="flex-shrink: 1;"></p><p style="flex-shrink: 1;"></p><p style="flex-shrink: 1;"></p><p style="flex-shrink: 1;"></p><p style="flex-shrink: 1;"></p><p style="flex-shrink: 1;"></p><p style="flex-shrink: 1;"></p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"child-container child-flexshrink"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"flex-shrink: 1;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"flex-shrink: 0;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"flex-shrink: 1;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"flex-shrink: 1;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"flex-shrink: 1;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"flex-shrink: 1;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"flex-shrink: 1;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"flex-shrink: 1;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"flex-shrink: 1;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.child-flexshrink<span class="token operator">></span>p<span class="token punctuation">{</span>
+    height: 50px<span class="token punctuation">;</span>
+    width: 50px<span class="token punctuation">;</span>
+    margin: 5px<span class="token punctuation">;</span>
+    background-color:<span class="token comment" spellcheck="true">#be5ad1;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h4><p>定义在一排空间未被占满之前，子元素的width或height的值(例如100px)，定义之后，子元素将占据固定空间。</p>
+<div class="child-container child-flexshrink"><p></p><p style="flex-basis: 100px;"></p><p></p><p></p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"child-container child-flexshrink"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"flex-basis: 100px;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.child-flexshrink<span class="token operator">></span>p<span class="token punctuation">{</span>
+    height: 50px<span class="token punctuation">;</span>
+    width: 50px<span class="token punctuation">;</span>
+    margin: 5px<span class="token punctuation">;</span>
+    background-color:<span class="token comment" spellcheck="true">#be5ad1;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h4><p>flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
+<pre class=" language-bash"><code class="language-bash">.item <span class="token punctuation">{</span>
+  flex: none <span class="token operator">|</span> <span class="token punctuation">[</span> <span class="token operator">&lt;</span><span class="token string">'flex-grow'</span><span class="token operator">></span> <span class="token operator">&lt;</span><span class="token string">'flex-shrink'</span><span class="token operator">></span>? <span class="token operator">||</span> <span class="token operator">&lt;</span><span class="token string">'flex-basis'</span><span class="token operator">></span> <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。<br>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p>
+<h4 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h4><p>该属性有6个属性值</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>属性值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>flex-start</td>
+</tr>
+<tr>
+<td>2</td>
+<td>flex-end</td>
+</tr>
+<tr>
+<td>3</td>
+<td>center</td>
+</tr>
+<tr>
+<td>4</td>
+<td>baseline</td>
+</tr>
+<tr>
+<td>5</td>
+<td>stretch</td>
+</tr>
+<tr>
+<td>6</td>
+<td>auto</td>
+</tr>
+</tbody>
+</table>
+<p>属性值含义可查看 <a href="#align-items">align-items</a> 与align-items属性值的含义相同(auto除外);</p>
+<p>align-self默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch属性值。</p>
+<div class="child-container child-alignself"><p></p><p style="align-self: flex-end;"></p><p></p><p></p></div>
+
+<p>代码:</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"child-container child-alignself"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token string">"align-self: flex-end;"</span><span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token operator">&lt;</span>/p<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.child-alignself<span class="token operator">></span>p<span class="token punctuation">{</span>
+    height: 50px<span class="token punctuation">;</span>
+    width: 50px<span class="token punctuation">;</span>
+    margin: 5px<span class="token punctuation">;</span>
+    background-color:<span class="token comment" spellcheck="true">#be5ad1;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>flex弹性布局的诞生，解决了传统CSS布局的很多问题，而且使用起来更加方便。</p>
+<p>我们回到之前最开始的那个问题，如果列表是动态的话，使用flex是不是很方便？</p>
+<pre class=" language-bash"><code class="language-bash">// html代码
+<span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"newlist"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>ul class<span class="token operator">=</span><span class="token string">"new-ul"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>li<span class="token operator">></span>列表1<span class="token operator">&lt;</span>/li<span class="token operator">></span>
+        <span class="token operator">&lt;</span>li<span class="token operator">></span>列表2<span class="token operator">&lt;</span>/li<span class="token operator">></span>
+        <span class="token operator">&lt;</span>li<span class="token operator">></span>列表3<span class="token operator">&lt;</span>/li<span class="token operator">></span>
+    <span class="token operator">&lt;</span>/ul<span class="token operator">></span>
+<span class="token operator">&lt;</span>/div<span class="token operator">></span>
+// css代码
+.newlist<span class="token punctuation">{</span>
+    border: 1px solid <span class="token comment" spellcheck="true">#D53419;</span>
+    background-color: <span class="token comment" spellcheck="true">#50E9EE;</span>
+    width: 250px<span class="token punctuation">;</span>
+    height: 250px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+.new-ul<span class="token punctuation">{</span>
+    margin-top: 0px<span class="token punctuation">;</span>
+    height: 250px<span class="token punctuation">;</span>
+    display: flex<span class="token punctuation">;</span>
+    flex-wrap: wrap<span class="token punctuation">;</span>
+    align-content: space-around<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+.new-ul<span class="token operator">></span>li<span class="token punctuation">{</span>
+    width: 100%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>三个列表的情况</p>
+<div class="newlist"><ul class="new-ul"><li>列表1</li><li>列表2</li><li>列表3</li></ul></div>
+
+<p>四个列表情况</p>
+<div class="newlist"><ul class="new-ul"><li>列表1</li><li>列表2</li><li>列表3</li><li>列表4</li></ul></div>
+
+<p>五个列表情况</p>
+<div class="newlist"><ul class="new-ul"><li>列表1</li><li>列表2</li><li>列表3</li><li>列表4</li><li>列表5</li></ul></div>
+
+<p>无需一直修改css文件，非常方便！</p>
+<p>本章完~</p>
+<script type="text/javascript" src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="/js/my/flexincss.js"></script>
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://xdlmr.github.io" class="b-link-green">MrLi</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/03/24/css-dan-xing-bu-ju-flex-bu-ju/" class="b-link-green">css弹性布局-flex布局</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/2018/08/01/linux-chang-yong-ming-ling/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Linux常用命令">
+                        
+                        <span class="card-title">Linux常用命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">本文主要介绍Linux常用的一些基本命令。
+
+查看系统版本：cat /etc/redhat-release 或 cat /etc/issue
+
+删除文件： rm -f /var/log/httpd/access.log
+
+ 将会强制删除/v</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2018/01/06/javascript-shu-ju-jie-gou-xiang-hu-zhuan-huan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="数据结构的相互转换">
+                        
+                        <span class="card-title">数据结构的相互转换</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">本文介绍 Map与Array,Object,JSON之间的相互转换
+Map转为ArrayMap转为Array,直接使用es6引入的扩展运算符(…)。
+let myMap = new Map().set(true, 7).set({foo: </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Javascript/" target="_blank">
+                        <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                    <a href="/tags/ES6/" target="_blank">
+                        <span class="chip bg-color">ES6</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">目录</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://xdlmr.github.io/" target="_blank">Mrli</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

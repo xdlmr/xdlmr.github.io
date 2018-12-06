@@ -1,0 +1,1006 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="《你不知道的javascript》学习笔记-第二部分第二章：this全面解析, MrLi">
+    <meta name="description" content="在第1章中，我们排除了一些对于this的错误理解并且明白了每个函数的this是在调用时被绑定的，完全取决于函数的调用位置（也就是函数的调用方法）。
+调用位置调用位置：调用位置就是函数在代码中被调用的位置（而不是声明的位置）。只有仔细分析调用">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>《你不知道的javascript》学习笔记-第二部分第二章：this全面解析 | MrLi</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">MrLi</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">MrLi</div>
+        <div class="logo-desc">
+            
+            生活在于分享
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xdlmr" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xdlmr" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        《你不知道的javascript》学习笔记-第二部分第二章：this全面解析
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/js/" target="_blank">
+                    <span class="chip bg-color">js</span>
+                </a>
+                
+                <a href="/tags/你不知道的javascript/" target="_blank">
+                    <span class="chip bg-color">你不知道的javascript</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/前端/" class="post-category" target="_blank">
+                        前端
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2016-08-18
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>在第1章中，我们排除了一些对于this的错误理解并且明白了每个函数的this是在调用时被绑定<br>的，完全取决于函数的调用位置（也就是函数的调用方法）。<br><a id="more"></a></p>
+<h1 id="调用位置"><a href="#调用位置" class="headerlink" title="调用位置"></a>调用位置</h1><p>调用位置：调用位置就是函数在代码中被调用的位置（而<br>不是声明的位置）。只有仔细分析调用位置才能回答这个问题：这个this到底引用的是什么？</p>
+<p>分析调用栈（就是为了到达当前执行位置所调用的所有函数）。我们关心的调用位置<br>就在当前正在执行的函数的前一个调用中。</p>
+<pre><code>function baz() {
+// 当前调用栈是：baz
+// 因此， 当前调用位置是全局作用域
+console.log( &quot;baz&quot; );
+bar(); // &lt;-- bar的调用位置
+} 
+function bar() {
+// 当前调用栈是baz -&gt; bar
+// 因此， 当前调用位置在baz中
+console.log( &quot;bar&quot; );
+foo(); // &lt;-- foo的调用位置
+} 
+function foo() {
+// 当前调用栈是baz -&gt; bar -&gt; foo
+// 因此， 当前调用位置在bar中
+console.log( &quot;foo&quot; );
+} 
+baz(); // &lt;-- baz的调用位置
+</code></pre><blockquote>
+<p>你可以把调用栈想象成一个函数调用链，就像我们在前面代码段的注释中所写的一样。但<br>是这种方法非常麻烦并且容易出错。另一个查看调用栈的方法是使用浏览器的调试工具。绝大<br>多数现代桌面浏览器都内置了开发者工具，其中包含JavaScript调试器。就本例来说，你可以在<br>工具中给foo()函数的第一行代码设置一个断点，或者直接在第一行代码之前插入一<br>条debugger;语句</p>
+</blockquote>
+<h1 id="绑定规则"><a href="#绑定规则" class="headerlink" title="绑定规则"></a>绑定规则</h1><p>我们来看看在函数的执行过程中调用位置如何决定this的绑定对象。<br>你必须找到调用位置，然后判断需要应用下面四条规则中的哪一条。我们首先会分别解释这四条<br>规则，然后解释多条规则都可用时它们的优先级如何排列。</p>
+<h2 id="默认绑定"><a href="#默认绑定" class="headerlink" title="默认绑定"></a>默认绑定</h2><p>首先要介绍的是最常用的函数调用类型：独立函数调用。可以把这条规则看作是无法应用其他规<br>则时的默认规则。</p>
+<pre><code>function foo() {
+    //当前调用栈
+    console.log( this.a );
+} 
+var a = 2;
+foo(); // 2  调用位置
+</code></pre><p>调用foo()时，this.a被解析成了全局变量a。为什么？因为在本例中，函数<br>调用时应用了this的默认绑定，因此this指向全局对象。</p>
+<p><b>在代码中，foo()是直接使用不带任何修饰的函数引用进行调用的，因此只能使用默认绑定，无法应<br>    用其他规则。</b><br>如果使用严格模式（strict mode），那么全局对象将无法使用默认绑定，因此this会绑定<br>到undefined：</p>
+<pre><code>function foo() {
+&quot;use strict&quot;;
+console.log( this.a );
+} 
+var a = 2;
+foo(); // TypeError: this is undefined    
+</code></pre><h2 id="隐式绑定"><a href="#隐式绑定" class="headerlink" title="隐式绑定"></a>隐式绑定</h2><p>另一条需要考虑的规则是调用位置是否有上下文对象，或者说是否被某个对象拥有或者包含，不<br>过这种说法可能会造成一些误导</p>
+<pre><code>function foo() {
+console.log( this.a );
+} 
+var obj = {
+a: 2,
+foo: foo
+};
+obj.foo(); // 2
+</code></pre><p>当foo()被调用时，它的落脚点确实指向obj对象。当函数引用有上下文<br>对象时，隐式绑定规则会把函数调用中的this绑定到这个上下文对象。因为调用foo()时this被绑<br>定到obj，因此this.a和obj.a是一样的。<br>对象属性引用链中只有最顶层或者说最后一层会影响调用位置。举例来说：</p>
+<pre><code>function foo() {
+console.log( this.a );
+} 
+var obj2 = {
+a: 42,
+foo: foo
+};
+var obj1 = {
+a: 2,
+obj2: obj2
+};
+obj1.obj2.foo(); // 42
+</code></pre><p>隐式丢失<br>一个最常见的this绑定问题就是被隐式绑定的函数会丢失绑定对象，也就是说它会应用默认绑<br>定，从而把this绑定到全局对象或者undefined上，取决于是否是严格模式。<br>思考下面的代码：</p>
+<pre><code>function foo() {
+console.log( this.a );
+} 
+var obj = {
+a: 2,
+foo: foo
+};
+var bar = obj.foo; // 函数别名！
+var a = &quot;oops, global&quot;; // a是全局对象的属性
+bar(); // &quot;oops, global&quot;
+</code></pre><p>虽然bar是obj.foo的一个引用，但是实际上，它引用的是foo函数本身，因此此时的bar()其实是一<br>个不带任何修饰的函数调用，因此应用了默认绑定。</p>
+<p>一种更微妙、更常见并且更出乎意料的情况发生在传入回调函数时：</p>
+<pre><code>function foo() {
+console.log( this.a );
+} f
+unction doFoo(fn) {
+// fn其实引用的是foo
+fn(); // &lt;-- 调用位置！
+} 
+
+var obj = {
+a: 2,
+foo: foo
+};
+var a = &quot;oops, global&quot;; // a是全局对象的属性
+doFoo( obj.foo ); // &quot;oops, global&quot;
+</code></pre><p>参数传递其实就是一种隐式赋值，因此我们传入函数时也会被隐式赋值，所以结果和上一个例子<br>一样。<br>如果把函数传入语言内置的函数而不是传入你自己声明的函数，会发生什么呢？结果是一样的，没<br>有区别</p>
+<pre><code>function foo() {
+console.log( this.a );
+} 
+var obj = {
+a: 2,
+foo: foo
+};
+var a = &quot;oops, global&quot;; // a是全局对象的属性
+setTimeout( obj.foo, 100 ); // &quot;oops, global&quot;
+JavaScript环境中内置的setTimeout()函数实现和下面的伪代码类似：
+
+&gt;function setTimeout(fn,delay) {
+// 等待delay毫秒
+fn(); // &lt;-- 调用位置！
+&gt;}
+</code></pre><p>就像我们看到的那样，回调函数丢失this绑定是非常常见的。除此之外，还有一种情况this的行为<br>会出乎我们意料：调用回调函数的函数可能会修改this。在一些流行的JavaScript库中事件处理器<br>常会把回调函数的this强制绑定到触发事件的DOM元素上。这在一些情况下可能很有用，但是有<br>时它可能会让你感到非常郁闷。遗憾的是，这些工具通常无法选择是否启用这个行为。<br>无论是哪种情况，this的改变都是意想不到的，实际上你无法控制回调函数的执行方式，因此就没<br>有办法控制会影响绑定的调用位置。之后我们会介绍如何通过固定this来修复（这里是双关，“修<br>复”和“固定”的英语单词都是fixing）这个问题。</p>
+<h2 id="显式绑定"><a href="#显式绑定" class="headerlink" title="显式绑定"></a>显式绑定</h2><p>就像我们刚才看到的那样，在分析隐式绑定时，我们必须在一个对象内部包含一个指向函数的属<br>性，并通过这个属性间接引用函数，从而把this间接（隐式）绑定到这个对象上。</p>
+<p>JavaScript提供的绝大多数函数以及你自己创建的所有函数都可以使用call(..)<br>和apply(..)方法<br>它们的第一个参数是一个对象，它们会把这个对象绑定到this，接着<br>在调用函数时指定这个this。因为你可以直接指定this的绑定对象，因此我们称之为显式绑定。</p>
+<pre><code>function foo() {
+console.log( this.a );
+} 
+var obj = {
+a:2
+};
+foo.call( obj ); // 2
+</code></pre><p>通过foo.call(..)，我们可以在调用foo时强制把它的this绑定到obj<br>如果你传入了一个原始值（字符串类型、布尔类型或者数字类型）来当作this的绑定对象，这个原<br>始值会被转换成它的对象形式（也就是new String(..)、new Boolean(..)或者new Number(..)）。这通<br>常被称为“装箱”。<br>可惜，显式绑定仍然无法解决我们之前提出的丢失绑定问题</p>
+<h3 id="硬绑定"><a href="#硬绑定" class="headerlink" title="硬绑定"></a>硬绑定</h3><p>但是显式绑定的一个变种可以解决这个问题。</p>
+<pre><code>function foo() {
+console.log( this.a );
+} 
+var obj = {
+a:2
+};
+var bar = function() {
+foo.call( obj );
+};
+bar(); // 2
+setTimeout( bar, 100 ); // 2
+// 硬绑定的bar不可能再修改它的this
+bar.call( window ); // 2
+</code></pre><p>我们创建了函数bar()，并在它的内部手动调用<br>了foo.call(obj)，因此强制把foo的this绑定到了obj。无论之后如何调用函数bar，它总会手动<br>在obj上调用foo。这种绑定是一种显式的强制绑定，因此我们称之为硬绑定。</p>
+<p>硬绑定的典型应用场景就是创建一个包裹函数，传入所有的参数并返回接收到的所有值：</p>
+<pre><code>function foo(something) {
+console.log( this.a, something );
+return this.a + something;
+} 
+var obj = {
+a:2
+};
+var bar = function() {
+return foo.apply( obj, arguments );
+};
+var b = bar( 3 ); // 2 3
+console.log( b ); // 5
+</code></pre><h3 id="API调用的“上下文”"><a href="#API调用的“上下文”" class="headerlink" title="API调用的“上下文”"></a>API调用的“上下文”</h3><p>第三方库的许多函数，以及JavaScript语言和宿主环境中许多新的内置函数，都提供了一个可选的<br>参数，通常被称为“上下文”（context），其作用和bind(..)一样，确保你的回调函数使用指定的this。<br>举例来说：</p>
+<pre><code>function foo(el) {
+console.log( el, this.id );
+} 
+var obj = {
+id: &quot;awesome&quot;
+};
+// 调用foo(..)时把this绑定到obj
+[1, 2, 3].forEach( foo, obj );
+// 1 awesome 2 awesome 3 awesome
+</code></pre><p>这些函数实际上就是通过call(..)或者apply(..)实现了显式绑定，这样你可以少些一些代码。</p>
+<h2 id="new绑定"><a href="#new绑定" class="headerlink" title="new绑定"></a>new绑定</h2><p>在传统的面向类的语言中，“构造函数”是类中的一些特殊方法，使用new初始化类时会调用类中的<br>构造函数。通常的形式是这样的：</p>
+<blockquote>
+<p>something = new MyClass(..);</p>
+</blockquote>
+<p>JavaScript中new的机制实际上和面向类的<br>语言完全不同<br>JavaScript，构造函数只是一些使用new操作符<br>时被调用的函数。它们并不会属于某个类，也不会实例化一个类。实际上，它们甚至都不能说是一<br>种特殊的函数类型，它们只是被new操作符调用的普通函数而已。</p>
+<p>使用new来调用函数，或者说发生构造函数调用时，会自动执行下面的操作。</p>
+<ol>
+<li>创建（或者说构造）一个全新的对象。</li>
+<li>这个新对象会被执行[[原型]]连接。</li>
+<li>这个新对象会绑定到函数调用的this。</li>
+<li>如果函数没有返回其他对象，那么new表达式中的函数调用会自动返回这个新对象。<pre><code>function foo(a) {
+this.a = a;
+} 
+var bar = new foo(2);
+console.log( bar.a ); // 2
+</code></pre>使用new来调用foo(..)时，我们会构造一个新对象并把它绑定到foo(..)调用中的this上。new是最<br>后一种可以影响函数调用时this绑定行为的方法，我们称之为new绑定。<h1 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h1>毫无疑问，默认绑定的优先级是四条规则中最低的，所以我们可以先不考虑它。<br>隐式绑定和显式绑定哪个优先级更高？我们来测试一下：<pre><code>function foo() {
+console.log( this.a );
+} 
+var obj1 = {
+a: 2,
+foo: foo
+};
+var obj2 = {
+a: 3,
+foo: foo
+};
+obj1.foo(); // 2
+obj2.foo(); // 3
+obj1.foo.call( obj2 ); // 3
+obj2.foo.call( obj1 ); // 2
+</code></pre>可以看到，显式绑定优先级更高，也就是说在判断时应当先考虑是否可以应用显式绑定。</li>
+</ol>
+<p>判断this<br>现在我们可以根据优先级来判断函数在某个调用位置应用的是哪条规则。可以按照下面的顺序来<br>进行判断：</p>
+<ol>
+<li>函数是否在new中调用（new绑定）？如果是的话this绑定的是新创建的对象。<blockquote>
+<p>var bar = new foo()</p>
+</blockquote>
+</li>
+<li>函数是否通过call、apply（显式绑定）或者硬绑定调用？如果是的话，this绑定的是指定的对象。<blockquote>
+<p>var bar = foo.call(obj2)</p>
+</blockquote>
+</li>
+<li>函数是否在某个上下文对象中调用（隐式绑定）？如果是的话，this绑定的是那个上下文对象。<blockquote>
+<p>var bar = obj1.foo()</p>
+</blockquote>
+</li>
+<li>如果都不是的话，使用默认绑定。如果在严格模式下，就绑定到undefined，否则绑定到全局对象。<blockquote>
+<p>var bar = foo()</p>
+</blockquote>
+</li>
+</ol>
+<p>就是这样。对于正常的函数调用来说，理解了这些知识你就可以明白this的绑定原理了。不过……<br>凡事总有例外</p>
+<h1 id="this词法"><a href="#this词法" class="headerlink" title="this词法"></a>this词法</h1><p>ES6中介绍了一种无法使用这些规<br>则的特殊函数类型：箭头函数。<br>箭头函<br>数不使用this的四种标准规则，而是根据外层（函数或者全局）作用域来决定this。<br>我们来看看箭头函数的词法作用域：</p>
+<pre><code>function foo() {
+// 返回一个箭头函数
+return (a) =&gt; {
+//this继承自foo()
+console.log( this.a );
+};
+} 
+var obj1 = {
+a:2
+};
+var obj2 = {
+a:3
+};
+var bar = foo.call( obj1 );
+bar.call( obj2 ); // 2, 不是3！
+</code></pre><p>foo()内部创建的箭头函数会捕获调用时foo()的this。由于foo()的this绑定到obj1，bar（引用箭头<br>函数）的this 也会绑定到obj1，箭头函数的绑定无法被修改。（new也不行！）</p>
+<p>如果你经常编写this风格的代码，但是绝大部分时候都会使用self = this或者箭头函数来否<br>定this机制，那你或许应当：</p>
+<ol>
+<li>只使用词法作用域并完全抛弃错误this风格的代码；</li>
+<li>完全采用this风格，在必要时使用bind(..)，尽量避免使用self = this和箭头函数。<br>当然，包含这两种代码风格的程序可以正常运行，但是在同一个函数或者同一个程序中混合使用<br>这两种风格通常会使代码更难维护，并且可能也会更难编写。<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1></li>
+</ol>
+<p>如果要判断一个运行中函数的this绑定，就需要找到这个函数的直接调用位置。找到之后就可以<br>顺序应用下面这四条规则来判断this的绑定对象。</p>
+<ol>
+<li>由new调用？绑定到新创建的对象。</li>
+<li>由call或者apply（或者bind）调用？绑定到指定的对象。</li>
+<li>由上下文对象调用？绑定到那个上下文对象。</li>
+<li>默认：在严格模式下绑定到undefined，否则绑定到全局对象。</li>
+</ol>
+<p>一定要注意，有些调用可能在无意中使用默认绑定规则。如果想“更安全”地忽略this绑定，你可以<br>使用一个DMZ对象，比如ø = Object.create(null)，以保护全局对象。<br>ES6中的箭头函数并不会使用四条标准的绑定规则，而是根据当前的词法作用域来决定this，具体<br>来说，箭头函数会继承外层函数调用的this绑定（无论this绑定到什么）。这其实和ES6之前代码中<br>的self = this机制一样。</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://xdlmr.github.io" class="b-link-green">MrLi</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2016/08/18/this-quan-mian-jie-xi/" class="b-link-green">《你不知道的javascript》学习笔记-第二部分第二章：this全面解析</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/2016/08/31/how-to-become-a-good-web-front-end-engineer/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="成为一名优秀的web前端工程师都需要做些什么？">
+                        
+                        <span class="card-title">成为一名优秀的web前端工程师都需要做些什么？</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">程序设计之道无远弗届，御晨风而返。———— 杰佛瑞 · 詹姆士
+我所遇到的前端程序员分两种：    第一种一直在问：如何学习前端？    第二种总说：前端很简单，就那么一点东西。
+我从没有听到有人问：如何做一名优秀、甚至卓越的WEB前端工程</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2016-08-31
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js/" target="_blank">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                    <a href="/tags/前端/" target="_blank">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2016/08/17/about-this/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="《你不知道的javascript》学习笔记-第二部分第一章：关于this">
+                        
+                        <span class="card-title">《你不知道的javascript》学习笔记-第二部分第一章：关于this</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">this关键字是JavaScript中最复杂的机制之一。它是一个很特别的关键字，被自动定义在所有函数的作用域中。但是即使是非常有经验的JavaScript开发者也很难说清它到底指向什么。
+为什么要用thisfunction identify</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2016-08-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js/" target="_blank">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                    <a href="/tags/你不知道的javascript/" target="_blank">
+                        <span class="chip bg-color">你不知道的javascript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">目录</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://xdlmr.github.io/" target="_blank">Mrli</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/xdlmr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:m13259482119@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1837782820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>
